@@ -32,6 +32,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
     implementation project(':latteEc')
     implementation project(':latteCore')
+    //Freagment依赖
+    implementation 'me.yokeyword:fragmentationx:1.0.1'
+    implementation 'me.yokeyword:fragmentationx-swipeback:1.0.1'
     //ButterKnife依赖
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
