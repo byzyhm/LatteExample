@@ -2,7 +2,9 @@ package com.zlcp.latteexample;
 
 import android.app.Application;
 
+import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.zlcp.lattecore.app.Latte;
+import com.zlcp.latteec.icon.FontEcModule;
 
 
 /**
@@ -15,7 +17,9 @@ public class ExampleApp extends Application {
     public void onCreate() {
         super.onCreate();
         Latte.init(this)
-//                .withI
+                .withIcon(new FontAwesomeModule())
+                .withIcon(new FontEcModule())
+                .withApiHost("https://www.baidu.com/")
                 .configure();
     }
 }
