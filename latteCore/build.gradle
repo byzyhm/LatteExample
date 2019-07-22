@@ -50,4 +50,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.0.1'
     implementation 'com.squareup.retrofit2:retrofit:2.6.0'
     implementation 'com.squareup.retrofit2:retrofit-converters:2.6.0'
+    //字体图标
+    implementation 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2'
+    implementation 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
 }

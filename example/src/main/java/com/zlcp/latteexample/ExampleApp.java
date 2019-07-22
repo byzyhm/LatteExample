@@ -14,6 +14,8 @@ public class ExampleApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Latte.init(this).configure();
+        Latte.init(this)
+//                .withI
+                .configure();
     }
 }
