@@ -5,7 +5,6 @@ import com.zlcp.lattecore.net.callback.IFailure;
 import com.zlcp.lattecore.net.callback.IRequest;
 import com.zlcp.lattecore.net.callback.ISuccess;
 
-import java.util.Map;
 import java.util.WeakHashMap;
 
 import okhttp3.MediaType;
@@ -17,9 +16,8 @@ import okhttp3.RequestBody;
  * 功能描述：
  */
 public class RestClientBuilder {
+    private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
     private String mUrl;
-    private Map<String, Object> mParams;
-//    private static final Map<String, Object> PARAMS = RestCreator.PARAMS;
     private IRequest mIRequest;
     private ISuccess mISuccess;
     private IFailure mIFailure;
@@ -35,16 +33,13 @@ public class RestClientBuilder {
         return this;
     }
 
-    public final RestClientBuilder params(Map<String, Object> params) {
-        this.mParams = params;
+    public final RestClientBuilder params(WeakHashMap<String, Object> params) {
+        PARAMS.putAll(params);
         return this;
     }
 
     public final RestClientBuilder params(String key, Object value) {
-        if (mParams == null) {
-            mParams = new WeakHashMap<>();
-        }
-        this.mParams.put(key, value);
+        PARAMS.put(key,value);
         return this;
     }
 
@@ -53,12 +48,12 @@ public class RestClientBuilder {
         return this;
     }
 
-    public final RestClientBuilder sucess(IRequest iRequest) {
+    public final RestClientBuilder oRequest(IRequest iRequest) {
         this.mIRequest = iRequest;
         return this;
     }
 
-    public final RestClientBuilder sucess(ISuccess iSuccess) {
+    public final RestClientBuilder success(ISuccess iSuccess) {
         this.mISuccess = iSuccess;
         return this;
     }
@@ -73,14 +68,7 @@ public class RestClientBuilder {
         return this;
     }
 
-    private Map<String, Object> checkParams() {
-        if (mParams == null) {
-            mParams = new WeakHashMap<>();
-        }
-        return mParams;
-    }
-
     public final RestClient build() {
-        return new RestClient(mUrl, mParams, mIRequest, mISuccess, mIFailure, mIError, mBody);
+        return new RestClient(mUrl, PARAMS, mIRequest, mISuccess, mIFailure, mIError, mBody);
     }
 }

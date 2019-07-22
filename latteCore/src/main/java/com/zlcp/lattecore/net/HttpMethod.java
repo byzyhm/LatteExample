@@ -11,6 +11,6 @@ public enum HttpMethod {
     POST_RAW,
     PUT,
     PUT_RAW,
-    DELEGET,
+    DELETE,
     UPLOAD
 }

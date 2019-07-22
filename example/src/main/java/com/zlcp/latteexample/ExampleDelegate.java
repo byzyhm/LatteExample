@@ -2,6 +2,7 @@ package com.zlcp.latteexample;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.zlcp.lattecore.delegates.LatteDelegate;
 import com.zlcp.lattecore.net.RestClient;
@@ -24,17 +25,16 @@ public class ExampleDelegate extends LatteDelegate {
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-
+        testRestClient();
     }
 
     private void testRestClient() {
         RestClient.builder()
-                .url("")
-                .params("", "")
-                .sucess(new ISuccess() {
+                .url("http://news.baidu.com/")
+                .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
-
+                        Toast.makeText(getContext(), response, Toast.LENGTH_LONG).show();
                     }
                 })
                 .failure(new IFailure() {
@@ -49,6 +49,7 @@ public class ExampleDelegate extends LatteDelegate {
 
                     }
                 })
-                .build();
+                .build()
+                .get();
     }
 }

@@ -3,6 +3,8 @@ package com.zlcp.latteexample;
 import android.app.Application;
 
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
+import com.zlcp.lattecore.app.ConfigKeys;
+import com.zlcp.lattecore.app.Configurator;
 import com.zlcp.lattecore.app.Latte;
 import com.zlcp.latteec.icon.FontEcModule;
 
@@ -19,7 +21,8 @@ public class ExampleApp extends Application {
         Latte.init(this)
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
-                .withApiHost("https://www.baidu.com/")
+                .withApiHost("http://news.baidu.com/")
                 .configure();
+        String url = (String) Configurator.getInstance().getLatteConfigs().get(ConfigKeys.API_HOST);
     }
 }
