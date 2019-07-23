@@ -4,7 +4,10 @@ import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.WeakHashMap;
+
+import okhttp3.Interceptor;
 
 /**
  * 作者：zl_freedom
@@ -12,8 +15,10 @@ import java.util.WeakHashMap;
  * 功能描述：
  */
 public class Configurator {
-    private static final WeakHashMap<String, Object> LATTE_CONFIGS = new WeakHashMap<>();
+    //    private static final WeakHashMap<String, Object> LATTE_CONFIGS = new WeakHashMap<>();
+    private static final HashMap<Object, Object> LATTE_CONFIGS = new HashMap<>();
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
+    private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
 
     private Configurator() {
         LATTE_CONFIGS.put(ConfigKeys.CONFIG_READY.name(), false);
@@ -27,7 +32,10 @@ public class Configurator {
         private static final Configurator INSTANCE = new Configurator();
     }
 
-    public final WeakHashMap<String, Object> getLatteConfigs() {
+//    public final WeakHashMap<String, Object> getLatteConfigs() {
+//        return LATTE_CONFIGS;
+//    }
+    public final HashMap<Object, Object> getLatteConfigs() {
         return LATTE_CONFIGS;
     }
 
