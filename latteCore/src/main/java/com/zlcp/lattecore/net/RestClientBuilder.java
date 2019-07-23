@@ -1,9 +1,12 @@
 package com.zlcp.lattecore.net;
 
+import android.content.Context;
+
 import com.zlcp.lattecore.net.callback.IError;
 import com.zlcp.lattecore.net.callback.IFailure;
 import com.zlcp.lattecore.net.callback.IRequest;
 import com.zlcp.lattecore.net.callback.ISuccess;
+import com.zlcp.lattecore.ui.LoaderStyle;
 
 import java.util.WeakHashMap;
 
@@ -16,13 +19,16 @@ import okhttp3.RequestBody;
  * 功能描述：
  */
 public class RestClientBuilder {
+    private String mUrl = null;
     private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
-    private String mUrl;
-    private IRequest mIRequest;
-    private ISuccess mISuccess;
-    private IFailure mIFailure;
-    private IError mIError;
-    private RequestBody mBody;
+    private IRequest mIRequest = null;
+    private ISuccess mISuccess = null;
+    private IFailure mIFailure = null;
+    private IError mIError = null;
+    private RequestBody mBody = null;
+
+    private Context mContext = null;
+    private LoaderStyle mLoaderStyle = null;
 
     RestClientBuilder() {
 
@@ -39,7 +45,7 @@ public class RestClientBuilder {
     }
 
     public final RestClientBuilder params(String key, Object value) {
-        PARAMS.put(key,value);
+        PARAMS.put(key, value);
         return this;
     }
 
@@ -68,7 +74,19 @@ public class RestClientBuilder {
         return this;
     }
 
+    public final RestClientBuilder loader(Context context, LoaderStyle loaderStyle) {
+        this.mContext = context;
+        this.mLoaderStyle = loaderStyle;
+        return this;
+    }
+
+    public final RestClientBuilder loader(Context context) {
+        this.mContext = context;
+        this.mLoaderStyle = LoaderStyle.BallClipRotateIndicator;
+        return this;
+    }
+
     public final RestClient build() {
-        return new RestClient(mUrl, PARAMS, mIRequest, mISuccess, mIFailure, mIError, mBody);
+        return new RestClient(mUrl, PARAMS, mIRequest, mISuccess, mIFailure, mIError, mBody, mContext, mLoaderStyle);
     }
 }
