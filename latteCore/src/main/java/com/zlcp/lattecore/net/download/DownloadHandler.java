@@ -2,7 +2,6 @@ package com.zlcp.lattecore.net.download;
 
 import android.os.AsyncTask;
 
-import com.zlcp.lattecore.net.RestClient;
 import com.zlcp.lattecore.net.RestCreator;
 import com.zlcp.lattecore.net.callback.IError;
 import com.zlcp.lattecore.net.callback.IFailure;
