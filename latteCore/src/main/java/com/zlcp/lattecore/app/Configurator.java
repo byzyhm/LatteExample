@@ -32,7 +32,7 @@ public class Configurator {
         private static final Configurator INSTANCE = new Configurator();
     }
 
-//    public final WeakHashMap<String, Object> getLatteConfigs() {
+    //    public final WeakHashMap<String, Object> getLatteConfigs() {
 //        return LATTE_CONFIGS;
 //    }
     public final HashMap<Object, Object> getLatteConfigs() {
@@ -60,6 +60,17 @@ public class Configurator {
 
     public final Configurator withIcon(IconFontDescriptor descriptor) {
         ICONS.add(descriptor);
+        return this;
+    }
+
+    public final Configurator withInterceptor(Interceptor interceptor) {
+        INTERCEPTORS.add(interceptor);
+        LATTE_CONFIGS.put(ConfigKeys.INTERCEPTOR, INTERCEPTORS);
+        return this;
+    }
+    public final Configurator withInterceptors(ArrayList<Interceptor> interceptors) {
+        INTERCEPTORS.addAll(interceptors);
+        LATTE_CONFIGS.put(ConfigKeys.INTERCEPTOR, INTERCEPTORS);
         return this;
     }
 
