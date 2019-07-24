@@ -6,6 +6,7 @@ import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.zlcp.lattecore.app.ConfigKeys;
 import com.zlcp.lattecore.app.Configurator;
 import com.zlcp.lattecore.app.Latte;
+import com.zlcp.lattecore.net.interceptors.AddCookieInterceptor;
 import com.zlcp.lattecore.net.interceptors.DebugInterceptor;
 import com.zlcp.latteec.icon.FontEcModule;
 
@@ -23,6 +24,7 @@ public class ExampleApp extends Application {
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
                 .withApiHost("http://news.baidu.com/")
+                .withInterceptor(new AddCookieInterceptor())// 增加Cookie同步拦截器
                 .withInterceptor(new DebugInterceptor("index",R.raw.test))
                 .configure();
 //        String url = (String) Configurator.getInstance().getLatteConfigs().get(ConfigKeys.API_HOST);
