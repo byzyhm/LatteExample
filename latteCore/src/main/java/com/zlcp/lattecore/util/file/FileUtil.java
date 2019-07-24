@@ -1,4 +1,4 @@
-package com.zlcp.lattecore.file;
+package com.zlcp.lattecore.util.file;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -32,9 +32,10 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Created by 傅令杰
+ * Created by Anding 文件工具类
  */
-public final class FileUtil {
+
+public class FileUtil {
 
     //格式化的模板
     private static final String TIME_FORMAT = "_yyyyMMdd_HHmmss";

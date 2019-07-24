@@ -1,4 +1,4 @@
-package com.zlcp.lattecore.util;
+package com.zlcp.lattecore.util.storage;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;

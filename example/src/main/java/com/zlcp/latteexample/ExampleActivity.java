@@ -2,12 +2,14 @@ package com.zlcp.latteexample;
 
 import com.zlcp.lattecore.activities.ProxyActivity;
 import com.zlcp.lattecore.delegates.LatteDelegate;
+import com.zlcp.latteec.launcher.LauncherDelegate;
 
 public class ExampleActivity extends ProxyActivity {
 
     @Override
     public LatteDelegate setRootDelegate() {
-        return new ExampleDelegate();
+//        return new ExampleDelegate();
+        return new LauncherDelegate();
     }
 
 //    @Override

@@ -7,7 +7,7 @@ import android.view.WindowManager;
 
 import com.wang.avi.AVLoadingIndicatorView;
 import com.zlcp.lattecore.R;
-import com.zlcp.lattecore.util.DeminUtil;
+import com.zlcp.lattecore.util.dimen.DeminUtil;
 
 import java.util.ArrayList;
 

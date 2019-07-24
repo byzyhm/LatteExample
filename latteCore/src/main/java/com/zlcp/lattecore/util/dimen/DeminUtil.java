@@ -1,4 +1,4 @@
-package com.zlcp.lattecore.util;
+package com.zlcp.lattecore.util.dimen;
 
 import android.content.res.Resources;
 import android.util.DisplayMetrics;

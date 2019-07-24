@@ -1,13 +1,11 @@
 package com.zlcp.lattecore.net.interceptors;
 
-import com.zlcp.lattecore.util.LattePreference;
+import com.zlcp.lattecore.util.storage.LattePreference;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
-import io.reactivex.Observable;
-import io.reactivex.functions.Consumer;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;

@@ -1,6 +1,6 @@
 package com.zlcp.lattecore.net.interceptors;
 
-import com.zlcp.lattecore.file.FileUtil;
+import com.zlcp.lattecore.util.file.FileUtil;
 
 import org.jetbrains.annotations.NotNull;
 
