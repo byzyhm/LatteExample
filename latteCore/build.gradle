@@ -59,7 +59,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
     //fastjson依赖
     implementation 'com.alibaba:fastjson:1.1.71.android'
-    //banner依赖
-    implementation 'com.bigkoo:convenientbanner:2.1.5'//地址变小写了，额。。。
-    implementation 'androidx.recyclerview:recyclerview:1.0.0+'
+    //Banner依赖
+    implementation 'com.youth.banner:banner:1.4.10'
+    //Banner依赖
+    implementation 'com.bigkoo:convenientbanner:2.0.5'
+    implementation 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
 }

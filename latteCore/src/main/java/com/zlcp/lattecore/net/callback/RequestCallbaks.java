@@ -2,8 +2,8 @@ package com.zlcp.lattecore.net.callback;
 
 import android.os.Handler;
 
-import com.zlcp.lattecore.ui.LatteLoader;
-import com.zlcp.lattecore.ui.LoaderStyle;
+import com.zlcp.lattecore.ui.loader.LatteLoader;
+import com.zlcp.lattecore.ui.loader.LoaderStyle;
 
 import retrofit2.Call;
 import retrofit2.Callback;

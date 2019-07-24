@@ -3,17 +3,9 @@ package com.zlcp.lattecore.net.rx;
 import android.content.Context;
 
 import com.zlcp.lattecore.net.HttpMethod;
-import com.zlcp.lattecore.net.RestClientBuilder;
 import com.zlcp.lattecore.net.RestCreator;
-import com.zlcp.lattecore.net.RestService;
-import com.zlcp.lattecore.net.callback.IError;
-import com.zlcp.lattecore.net.callback.IFailure;
-import com.zlcp.lattecore.net.callback.IRequest;
-import com.zlcp.lattecore.net.callback.ISuccess;
-import com.zlcp.lattecore.net.callback.RequestCallbaks;
-import com.zlcp.lattecore.net.download.DownloadHandler;
-import com.zlcp.lattecore.ui.LatteLoader;
-import com.zlcp.lattecore.ui.LoaderStyle;
+import com.zlcp.lattecore.ui.loader.LatteLoader;
+import com.zlcp.lattecore.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;
@@ -24,8 +16,6 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
 
 /**
  * 作者：zl_freedom

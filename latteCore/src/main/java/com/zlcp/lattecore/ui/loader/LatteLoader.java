@@ -1,4 +1,4 @@
-package com.zlcp.lattecore.ui;
+package com.zlcp.lattecore.ui.loader;
 
 import android.content.Context;
 import android.view.Gravity;

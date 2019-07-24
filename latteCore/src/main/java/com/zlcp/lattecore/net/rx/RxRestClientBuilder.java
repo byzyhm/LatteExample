@@ -2,13 +2,8 @@ package com.zlcp.lattecore.net.rx;
 
 import android.content.Context;
 
-import com.zlcp.lattecore.net.RestClient;
 import com.zlcp.lattecore.net.RestCreator;
-import com.zlcp.lattecore.net.callback.IError;
-import com.zlcp.lattecore.net.callback.IFailure;
-import com.zlcp.lattecore.net.callback.IRequest;
-import com.zlcp.lattecore.net.callback.ISuccess;
-import com.zlcp.lattecore.ui.LoaderStyle;
+import com.zlcp.lattecore.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.WeakHashMap;

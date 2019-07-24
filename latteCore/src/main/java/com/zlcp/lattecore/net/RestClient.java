@@ -8,9 +8,8 @@ import com.zlcp.lattecore.net.callback.IRequest;
 import com.zlcp.lattecore.net.callback.ISuccess;
 import com.zlcp.lattecore.net.callback.RequestCallbaks;
 import com.zlcp.lattecore.net.download.DownloadHandler;
-import com.zlcp.lattecore.ui.LatteLoader;
-import com.zlcp.lattecore.ui.LoaderCreator;
-import com.zlcp.lattecore.ui.LoaderStyle;
+import com.zlcp.lattecore.ui.loader.LatteLoader;
+import com.zlcp.lattecore.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

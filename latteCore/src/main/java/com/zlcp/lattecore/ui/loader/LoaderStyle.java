@@ -1,4 +1,4 @@
-package com.zlcp.lattecore.ui;
+package com.zlcp.lattecore.ui.loader;
 
 /**
  * 作者：zl_freedom
