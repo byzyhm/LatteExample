@@ -21,8 +21,8 @@ public class ExampleApp extends Application {
     public void onCreate() {
         super.onCreate();
         Latte.init(this)
-                .withIcon(new FontAwesomeModule())
-                .withIcon(new FontEcModule())
+                .withIcon(new FontAwesomeModule())                       //Awesome风格图片
+                .withIcon(new FontEcModule())                            //自定义IconText
                 .withApiHost("http://news.baidu.com/")
                 .withInterceptor(new AddCookieInterceptor())// 增加Cookie同步拦截器
                 .withInterceptor(new DebugInterceptor("index",R.raw.test))

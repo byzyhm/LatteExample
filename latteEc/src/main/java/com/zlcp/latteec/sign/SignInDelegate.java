@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.google.android.material.textfield.TextInputEditText;
 import com.zlcp.lattecore.delegates.LatteDelegate;
 import com.zlcp.lattecore.net.RestClient;
 import com.zlcp.lattecore.net.callback.ISuccess;
-import com.zlcp.lattecore.util.log.LogUtils;
 import com.zlcp.latteec.R;
 import com.zlcp.latteec.R2;
 
@@ -19,20 +19,15 @@ import butterknife.OnClick;
 
 /**
  * 作者：zl_freedom
- * 时间：2019/7/25 14:42
+ * 时间：2019/7/25 18:20
  * 功能描述：
  */
-public class SignUpDelegate extends LatteDelegate {
-    @BindView(R2.id.edit_sign_up_name)
-    TextInputEditText mName = null;
-    @BindView(R2.id.edit_sign_up_email)
+public class SignInDelegate extends LatteDelegate {
+
+    @BindView(R2.id.edit_sign_in_email)
     TextInputEditText mEmail = null;
-    @BindView(R2.id.edit_sign_up_phone)
-    TextInputEditText mPhone = null;
-    @BindView(R2.id.edit_sign_up_password)
+    @BindView(R2.id.edit_sign_in_password)
     TextInputEditText mPassword = null;
-    @BindView(R2.id.edit_sign_up_re_password)
-    TextInputEditText mRePassword = null;
 
     public ISignListener mISignListener = null;
 
@@ -44,20 +39,20 @@ public class SignUpDelegate extends LatteDelegate {
         }
     }
 
-    @OnClick(R2.id.btn_sign_up)
-    void onClickSignUp() {
-        if (checkForm()) {
+    //登录按钮
+    @OnClick(R2.id.btn_sign_in)
+    void onClickSignIn() {
+        if (checkFrom()) {
             RestClient.builder()
                     .url("http://mock.fulingjie.com/mock-android/data/user_profile.json")
-                    .params("name", mName.getText().toString())
                     .params("email", mEmail.getText().toString())
-                    .params("phone", mPhone.getText().toString())
                     .params("password", mPassword.getText().toString())
                     .success(new ISuccess() {
                         @Override
                         public void onSuccess(String response) {
                             LogUtils.json("USER_PROFILE", response);
-                            SignHandler.onSignUp(response, mISignListener);
+                            SignHandler.onSignIn(response, mISignListener);
+//                            getSupportDelegate().startWithPop(new EcBottomFragment());
                         }
                     })
                     .loader(getContext())
@@ -66,26 +61,34 @@ public class SignUpDelegate extends LatteDelegate {
         }
     }
 
-    @OnClick(R2.id.tv_link_sign_in)
+    //没帐号，去注册按钮
+    @OnClick(R2.id.tv_link_sign_up)
     void onClickLink() {
-        getSupportDelegate().start(new SignInDelegate(), SINGLETASK);
+        getSupportDelegate().start(new SignUpDelegate(), SINGLETASK);
+    }
+    //微信登录按钮
+    @OnClick(R2.id.icon_sign_in_wechat)
+    void onClickWeChat() {
+
     }
 
-    private boolean checkForm() {
-        final String name = mName.getText().toString();
+
+
+    @Override
+    public Object setLayout() {
+        return R.layout.delegate_sign_in;
+    }
+
+    @Override
+    public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
+
+    }
+
+    private boolean checkFrom() {
         final String email = mEmail.getText().toString();
-        final String phone = mPhone.getText().toString();
         final String password = mPassword.getText().toString();
-        final String rePassword = mRePassword.getText().toString();
 
         boolean isPass = true;
-
-        if (name.isEmpty()) {
-            mName.setError("请输入姓名");
-            isPass = false;
-        } else {
-            mName.setError(null);
-        }
 
         if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             mEmail.setError("错误的邮箱格式");
@@ -94,38 +97,13 @@ public class SignUpDelegate extends LatteDelegate {
             mEmail.setError(null);
         }
 
-        if (phone.isEmpty() || phone.length() != 11) {
-            mPhone.setError("手机号码错误");
-            isPass = false;
-        } else {
-            mPhone.setError(null);
-        }
-
         if (password.isEmpty() || password.length() < 6) {
-            mPassword.setError("请填写至少6位数密码");
+            mPassword.setError("请填写至少6位数的密码");
             isPass = false;
         } else {
             mPassword.setError(null);
         }
 
-        if (rePassword.isEmpty() || rePassword.length() < 6 || !(rePassword.equals(password))) {
-            mRePassword.setError("两次密码输入不一致");
-            isPass = false;
-        } else {
-            mRePassword.setError(null);
-        }
-
         return isPass;
-    }
-
-
-    @Override
-    public Object setLayout() {
-        return R.layout.delegate_sign_up;
-    }
-
-    @Override
-    public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-
     }
 }

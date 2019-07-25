@@ -11,6 +11,7 @@ import com.zlcp.latteec.launcher.LauncherDelegate;
 import com.zlcp.latteec.launcher.LauncherScrollDelegate;
 import com.zlcp.latteec.launcher.OnLauncherFinishTag;
 import com.zlcp.latteec.sign.ISignListener;
+import com.zlcp.latteec.sign.SignInDelegate;
 import com.zlcp.latteec.sign.SignUpDelegate;
 
 import androidx.annotation.Nullable;
@@ -22,7 +23,6 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final ActionBar actionBar = getSupportActionBar();
         Latte.getConfigurator().withActivity(this);
         StatusBarCompat.translucentStatusBar(this, true);
     }
@@ -33,6 +33,7 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
 //        return new LauncherDelegate();
 //        return new LauncherScrollDelegate();
         return new SignUpDelegate();
+//        return new SignInDelegate();
     }
 
     @Override

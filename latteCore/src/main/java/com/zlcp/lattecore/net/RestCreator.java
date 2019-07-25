@@ -18,7 +18,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 /**
  * 作者：zl_freedom
  * 时间：2019/7/22 10:12
- * 功能描述：
+ * Note：Retrofit、RestService、OkHttpClient单例创建
  */
 public class RestCreator {
 
@@ -27,25 +27,17 @@ public class RestCreator {
         public static final WeakHashMap<String, Object> PARAMS = new WeakHashMap<>();
     }
 
+
     public static WeakHashMap<String, Object> getParams() {
         return ParamsHolder.PARAMS;
     }
 
-
     /**
      * 构建全局Retrofit客户端
      */
-//    private static final class RetrofitHolder {
-//        private static final String BASE_URL = Latte.getConfiguration(ConfigKeys.API_HOST.name());
-//        private static final Retrofit RETROFIT_CLIENT = new Retrofit.Builder()
-//                .baseUrl(BASE_URL)
-//                .client(OKHttpHolder.OK_HTTP_CLIENT)
-//                .addConverterFactory(ScalarsConverterFactory.create())
-//                .build();
-//    }
 
     private static final class RetrofitHolder {
-        private static final String BASE_URL = (String) Latte.getConfiguration(ConfigKeys.API_HOST.name());
+        private static final String BASE_URL = (String) Latte.getConfiguration(ConfigKeys.API_HOST);
         private static final retrofit2.Retrofit RETROFIT_CLIENT = new retrofit2.Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(OKHttpHolder.OK_HTTP_CLIENT)
