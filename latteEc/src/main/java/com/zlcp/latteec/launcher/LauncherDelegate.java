@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.zlcp.lattecore.delegates.LatteDelegate;
+import com.zlcp.lattecore.ui.launcher.ScrollLauncherTag;
+import com.zlcp.lattecore.util.storage.LattePreference;
 import com.zlcp.lattecore.util.timer.BaseTimerTask;
 import com.zlcp.lattecore.util.timer.ITimerListener;
 import com.zlcp.latteec.R;
@@ -32,7 +34,14 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
 
     @OnClick(R2.id.tv_launcher_timer)
     void onClickTimerView() {
-
+        if (mTimer != null) {
+            mTimer.cancel();
+            mTimer = null;
+            //判断是否第一次登录
+            checkIsShowScroll();
+        } else {
+            int click = 2;
+        }
     }
 
     private void initTimer() {
@@ -51,8 +60,16 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
         initTimer();
     }
 
-    public void checkIsShowScroll(){
-
+    /**
+     * 判断是否显示滑动启动页
+     */
+    private void checkIsShowScroll() {
+        if (!LattePreference.getAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name())) {//第一次启动
+            start(new LauncherScrollDelegate(), SINGLETASK);
+        } else {
+            //检查用户是否登录了App
+            int test = 1;
+        }
     }
 
     @Override
@@ -67,7 +84,7 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
                         if (mTimer != null) {
                             mTimer.cancel();
                             mTimer = null;
-//                            判断是否第一次登录
+                            //判断是否第一次登录
                             checkIsShowScroll();
                         }
                     }

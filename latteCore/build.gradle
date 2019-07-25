@@ -64,4 +64,15 @@ dependencies {
     //Banner依赖
     implementation 'com.bigkoo:convenientbanner:2.0.5'
     implementation 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
+    //design包依赖
+    implementation 'com.google.android.material:material:1.0.0'
+    //Log依赖
+    implementation 'com.orhanobut:logger:2.2.0'
+    //沉浸式状态栏
+    implementation ('com.github.niorgai:StatusBarCompat:2.3.3', {
+        exclude group: 'androidx.appcompat:appcompat'
+        exclude group: 'com.google.android.material:material'
+    })
+    //工具类
+    implementation 'com.blankj:utilcodex:1.25.1'
 }
