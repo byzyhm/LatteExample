@@ -3,14 +3,17 @@ package com.zlcp.latteexample;
 import com.zlcp.lattecore.activities.ProxyActivity;
 import com.zlcp.lattecore.delegates.LatteDelegate;
 import com.zlcp.latteec.launcher.LauncherDelegate;
+import com.zlcp.latteec.launcher.LauncherScrollDelegate;
 
 public class ExampleActivity extends ProxyActivity {
 
     @Override
     public LatteDelegate setRootDelegate() {
 //        return new ExampleDelegate();
-        return new LauncherDelegate();
+//        return new LauncherDelegate();
+        return new LauncherScrollDelegate();
     }
+
 
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {

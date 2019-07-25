@@ -19,11 +19,11 @@ public class LauncherHolder implements Holder<Integer> {
 
     @Override
     public View createView(Context context) {
-        return null;
+        return mImageView = new AppCompatImageView(context);
     }
 
     @Override
     public void UpdateUI(Context context, int position, Integer data) {
-
+        mImageView.setBackgroundResource(data);
     }
 }
