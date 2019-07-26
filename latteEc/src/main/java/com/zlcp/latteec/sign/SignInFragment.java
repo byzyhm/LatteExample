@@ -2,34 +2,36 @@ package com.zlcp.latteec.sign;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Toast;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.google.android.material.textfield.TextInputEditText;
-import com.zlcp.lattecore.delegates.LatteDelegate;
+import com.zlcp.lattecore.delegates.LatteFragment;
 import com.zlcp.lattecore.net.RestClient;
 import com.zlcp.lattecore.net.callback.ISuccess;
 import com.zlcp.latteec.R;
 import com.zlcp.latteec.R2;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static com.blankj.utilcode.util.BarUtils.getStatusBarHeight;
 
 /**
  * 作者：zl_freedom
  * 时间：2019/7/25 18:20
  * 功能描述：
  */
-public class SignInDelegate extends LatteDelegate {
+public class SignInFragment extends LatteFragment implements View.OnClickListener {
 
-    @BindView(R2.id.edit_sign_in_email)
-    TextInputEditText mEmail = null;
-    @BindView(R2.id.edit_sign_in_password)
-    TextInputEditText mPassword = null;
-
-    public ISignListener mISignListener = null;
+    private TextInputEditText mEmail = null;
+    private TextInputEditText mPassword = null;
+    private ISignListener mISignListener = null;
 
     @Override
     public void onAttach(Activity activity) {
@@ -39,9 +41,22 @@ public class SignInDelegate extends LatteDelegate {
         }
     }
 
-    //登录按钮
-    @OnClick(R2.id.btn_sign_in)
-    void onClickSignIn() {
+    @Override
+    public Object setLayout() {
+        return R.layout.fragment_sign_in;
+    }
+
+    @Override
+    public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View root) {
+        mEmail = $(R.id.edit_sign_in_email);
+        mPassword = $(R.id.edit_sign_in_password);
+        $(R.id.btn_sign_in).setOnClickListener(this);
+        $(R.id.tv_link_sign_up).setOnClickListener(this);
+        $(R.id.icon_sign_in_wechat).setOnClickListener(this);
+        $(R.id.tb_sign_in).setPadding(0, getStatusBarHeight(), 0, 0);
+    }
+
+    private void onClickSignIn() {
         if (checkFrom()) {
             RestClient.builder()
                     .url("http://mock.fulingjie.com/mock-android/data/user_profile.json")
@@ -52,36 +67,15 @@ public class SignInDelegate extends LatteDelegate {
                         public void onSuccess(String response) {
                             LogUtils.json("USER_PROFILE", response);
                             SignHandler.onSignIn(response, mISignListener);
+                            //登录成功跳转主页，还没写
 //                            getSupportDelegate().startWithPop(new EcBottomFragment());
+
                         }
                     })
                     .loader(getContext())
                     .build()
                     .post();
         }
-    }
-
-    //没帐号，去注册按钮
-    @OnClick(R2.id.tv_link_sign_up)
-    void onClickLink() {
-        getSupportDelegate().start(new SignUpDelegate(), SINGLETASK);
-    }
-    //微信登录按钮
-    @OnClick(R2.id.icon_sign_in_wechat)
-    void onClickWeChat() {
-
-    }
-
-
-
-    @Override
-    public Object setLayout() {
-        return R.layout.delegate_sign_in;
-    }
-
-    @Override
-    public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-
     }
 
     private boolean checkFrom() {
@@ -105,5 +99,32 @@ public class SignInDelegate extends LatteDelegate {
         }
 
         return isPass;
+    }
+
+    @Override
+    public void onClick(View v) {
+        int i = v.getId();
+        if (i == R.id.btn_sign_in) {
+            onClickSignIn();
+        } else if (i == R.id.tv_link_sign_up) {
+            onClickLink();
+        } else if (i == R.id.icon_sign_in_wechat) {
+            onClickWeChat();
+        }
+    }
+
+
+    private void onClickLink() {
+        getSupportDelegate().start(new SignUpFragment(), SINGLETASK);
+    }
+
+    private void onClickWeChat() {
+//        LatteWeChat.getInstance().onSignSuccess(new IWeChatSignInCallback() {
+//            @Override
+//            public void onSignInsuccess(String userInfo) {
+//                Toast.makeText(getContext(), userInfo, Toast.LENGTH_LONG).show();
+//                Log.e("xxxx", "userInfo");
+//            }
+//        }).signIn();
     }
 }

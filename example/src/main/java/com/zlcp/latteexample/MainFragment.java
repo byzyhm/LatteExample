@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.zlcp.lattecore.app.Latte;
-import com.zlcp.lattecore.delegates.LatteDelegate;
+import com.zlcp.lattecore.delegates.LatteFragment;
 import com.zlcp.lattecore.net.RestClient;
 import com.zlcp.lattecore.net.callback.IError;
 import com.zlcp.lattecore.net.callback.IFailure;
@@ -24,7 +24,7 @@ import io.reactivex.schedulers.Schedulers;
  * 时间：2019/7/21 22:03
  * 功能描述：
  */
-public class ExampleDelegate extends LatteDelegate {
+public class MainFragment extends LatteFragment {
     @Override
     public Object setLayout() {
         return R.layout.delegate_example;

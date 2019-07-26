@@ -6,33 +6,28 @@ import android.util.Patterns;
 import android.view.View;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.zlcp.lattecore.delegates.LatteDelegate;
+import com.zlcp.lattecore.delegates.LatteFragment;
 import com.zlcp.lattecore.net.RestClient;
 import com.zlcp.lattecore.net.callback.ISuccess;
 import com.zlcp.lattecore.util.log.LogUtils;
 import com.zlcp.latteec.R;
-import com.zlcp.latteec.R2;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import butterknife.BindView;
-import butterknife.OnClick;
+
+import static com.blankj.utilcode.util.BarUtils.getStatusBarHeight;
 
 /**
  * 作者：zl_freedom
  * 时间：2019/7/25 14:42
  * 功能描述：
  */
-public class SignUpDelegate extends LatteDelegate {
-    @BindView(R2.id.edit_sign_up_name)
-    TextInputEditText mName = null;
-    @BindView(R2.id.edit_sign_up_email)
-    TextInputEditText mEmail = null;
-    @BindView(R2.id.edit_sign_up_phone)
-    TextInputEditText mPhone = null;
-    @BindView(R2.id.edit_sign_up_password)
-    TextInputEditText mPassword = null;
-    @BindView(R2.id.edit_sign_up_re_password)
-    TextInputEditText mRePassword = null;
+public class SignUpFragment extends LatteFragment {
+    private TextInputEditText mName = null;
+    private TextInputEditText mEmail = null;
+    private TextInputEditText mPhone = null;
+    private TextInputEditText mPassword = null;
+    private TextInputEditText mRePassword = null;
 
     public ISignListener mISignListener = null;
 
@@ -44,8 +39,36 @@ public class SignUpDelegate extends LatteDelegate {
         }
     }
 
-    @OnClick(R2.id.btn_sign_up)
-    void onClickSignUp() {
+    @Override
+    public Object setLayout() {
+        return R.layout.fragment_sign_up;
+    }
+
+    @Override
+    public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View root) {
+        mName = $(R.id.edit_sign_up_name);
+        mEmail = $(R.id.edit_sign_up_email);
+        mPhone = $(R.id.edit_sign_up_phone);
+        mPassword = $(R.id.edit_sign_up_password);
+        mRePassword = $(R.id.edit_sign_up_re_password);
+        $(R.id.tb_sign_up).setPadding(0, getStatusBarHeight(), 0, 0);
+
+        $(R.id.btn_sign_up).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickSignUp();
+            }
+        });
+
+        $(R.id.tv_link_sign_in).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickLink();
+            }
+        });
+    }
+    //点击注册
+    private void onClickSignUp() {
         if (checkForm()) {
             RestClient.builder()
                     .url("http://mock.fulingjie.com/mock-android/data/user_profile.json")
@@ -58,6 +81,8 @@ public class SignUpDelegate extends LatteDelegate {
                         public void onSuccess(String response) {
                             LogUtils.json("USER_PROFILE", response);
                             SignHandler.onSignUp(response, mISignListener);
+                            //注册成功应该跳转主页,还是登录页？登陆下吧
+                            getSupportDelegate().start(new SignInFragment());
                         }
                     })
                     .loader(getContext())
@@ -65,10 +90,9 @@ public class SignUpDelegate extends LatteDelegate {
                     .post();
         }
     }
-
-    @OnClick(R2.id.tv_link_sign_in)
-    void onClickLink() {
-        getSupportDelegate().start(new SignInDelegate(), SINGLETASK);
+    //点击跳转登录
+    private void onClickLink() {
+        getSupportDelegate().start(new SignInFragment(), SINGLETASK);
     }
 
     private boolean checkForm() {
@@ -116,16 +140,5 @@ public class SignUpDelegate extends LatteDelegate {
         }
 
         return isPass;
-    }
-
-
-    @Override
-    public Object setLayout() {
-        return R.layout.delegate_sign_up;
-    }
-
-    @Override
-    public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-
     }
 }

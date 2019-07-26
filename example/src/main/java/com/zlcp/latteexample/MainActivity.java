@@ -5,20 +5,19 @@ import android.widget.Toast;
 
 import com.zlcp.lattecore.activities.ProxyActivity;
 import com.zlcp.lattecore.app.Latte;
-import com.zlcp.lattecore.delegates.LatteDelegate;
+import com.zlcp.lattecore.delegates.LatteFragment;
 import com.zlcp.latteec.launcher.ILauncherListener;
-import com.zlcp.latteec.launcher.LauncherDelegate;
-import com.zlcp.latteec.launcher.LauncherScrollDelegate;
+import com.zlcp.latteec.launcher.LauncherFragment;
 import com.zlcp.latteec.launcher.OnLauncherFinishTag;
 import com.zlcp.latteec.sign.ISignListener;
-import com.zlcp.latteec.sign.SignInDelegate;
-import com.zlcp.latteec.sign.SignUpDelegate;
+import com.zlcp.latteec.sign.SignInFragment;
+import com.zlcp.latteec.sign.SignUpFragment;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import qiu.niorgai.StatusBarCompat;
 
-public class ExampleActivity extends ProxyActivity implements ISignListener, ILauncherListener {
+public class MainActivity extends ProxyActivity
+        implements ISignListener, ILauncherListener {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,17 +27,8 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
     }
 
     @Override
-    public LatteDelegate setRootDelegate() {
-//        return new ExampleDelegate();
-//        return new LauncherDelegate();
-//        return new LauncherScrollDelegate();
-        return new SignUpDelegate();
-//        return new SignInDelegate();
-    }
-
-    @Override
-    public void onSignUpSuccess() {
-        Toast.makeText(this, "注册成功", Toast.LENGTH_LONG).show();
+    public LatteFragment setRootFragment() {
+        return new LauncherFragment();
     }
 
     @Override
@@ -47,13 +37,20 @@ public class ExampleActivity extends ProxyActivity implements ISignListener, ILa
     }
 
     @Override
+    public void onSignUpSuccess() {
+        Toast.makeText(this, "MainActivity提示注册成功", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void onLauncherFinish(OnLauncherFinishTag tag) {
         switch (tag) {
             case SIGNED:
                 Toast.makeText(this, "您已登陆了哟！", Toast.LENGTH_LONG).show();
                 break;
-            case NOT_SINGED:
+            case NOT_SIGNED:
                 Toast.makeText(this, "亲，您还没有登录！", Toast.LENGTH_LONG).show();
+//                getSupportDelegate().startWithPop(new EcBottomFragment());
+                getSupportDelegate().start(new SignInFragment());//没登录先直接跳转登录页面
                 break;
             default:
                 break;
