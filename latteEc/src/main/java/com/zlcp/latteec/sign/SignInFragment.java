@@ -69,7 +69,6 @@ public class SignInFragment extends LatteFragment implements View.OnClickListene
                             SignHandler.onSignIn(response, mISignListener);
                             //登录成功跳转主页，还没写
 //                            getSupportDelegate().startWithPop(new EcBottomFragment());
-
                         }
                     })
                     .loader(getContext())

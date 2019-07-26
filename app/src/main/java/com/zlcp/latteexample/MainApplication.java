@@ -6,6 +6,7 @@ import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.zlcp.lattecore.app.Latte;
 import com.zlcp.lattecore.net.interceptors.AddCookieInterceptor;
 import com.zlcp.lattecore.net.interceptors.DebugInterceptor;
+import com.zlcp.latteec.database.DatabaseManager;
 import com.zlcp.latteec.icon.FontEcModule;
 
 
@@ -24,8 +25,18 @@ public class MainApplication extends Application {
 //                .withApiHost("http://news.baidu.com/")
                 .withApiHost("http://mock.fulingjie.com/mock-android/api/")
                 .withInterceptor(new AddCookieInterceptor())// 增加Cookie同步拦截器
-                .withInterceptor(new DebugInterceptor("index",R.raw.test))
+                .withInterceptor(new DebugInterceptor("index", R.raw.test))
                 .configure();
-//        String url = (String) Configurator.getInstance().getLatteConfigs().get(ConfigKeys.API_HOST);
+//        MultiDex.install(this);
+//        initStetho();
+        DatabaseManager.getInstance().initDao(this);
+
     }
+
+//    private void initStetho() {
+//        Stetho.initialize(
+//                Stetho.newInitializerBuilder(this)
+//                .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+//                .build());
+//    }
 }

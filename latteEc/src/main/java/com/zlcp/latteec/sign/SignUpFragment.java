@@ -31,6 +31,7 @@ public class SignUpFragment extends LatteFragment {
 
     public ISignListener mISignListener = null;
 
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
