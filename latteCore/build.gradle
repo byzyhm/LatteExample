@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
     compileSdkVersion 28
@@ -75,4 +76,6 @@ dependencies {
     })
     //工具类
     implementation 'com.blankj:utilcodex:1.25.1'
+    //greendao依赖
+    implementation 'org.greenrobot:greendao:3.2.2' // add library
 }
