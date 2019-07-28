@@ -32,6 +32,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+
+    /**************************************************************************/
+
+    /**************************************************************************/
+
+
     implementation project(':latteEc')
     implementation project(':latteCore')
     //Freagment依赖
@@ -75,10 +81,9 @@ dependencies {
     implementation 'org.greenrobot:greendao:3.2.2'
     // add library
     implementation 'org.greenrobot:greendao-generator:3.2.2'
-    //测试
-//    implementation 'com.facebook.stetho:stetho:1.5.1'
-//    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
-//    implementation 'com.android.support:multidex:1.0.3'
+    //注解依赖
+    annotationProcessor project(':latteCompiler')
+    implementation project(':latteAnnotations')
 }
 
 greendao {
