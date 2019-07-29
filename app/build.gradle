@@ -37,8 +37,11 @@ dependencies {
     implementation project(':latteEc')
     //注解依赖
     annotationProcessor project(':latteCompiler')
-    implementation project(':latteAnnotations')
-    //
+//    implementation project(':latteAnnotations')
+
+    compileOnly project(':latteAnnotations')
+
+    //规避方法数超过64k的一个bug，也有可能是依赖包重复，先规避一下
     implementation 'com.android.support:multidex:1.0.3'
 
 }
