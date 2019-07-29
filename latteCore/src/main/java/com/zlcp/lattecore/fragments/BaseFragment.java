@@ -1,14 +1,5 @@
 package com.zlcp.lattecore.fragments;
 
-//import android.os.Bundle;
-//import android.support.annotation.NonNull;
-//import android.support.annotation.Nullable;
-//import android.view.LayoutInflater;
-//import android.view.View;
-//import android.view.ViewGroup;
-//
-//import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -17,13 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 
-import com.zlcp.lattecore.activities.ProxyActivity;
-
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+
+import com.zlcp.lattecore.activities.ProxyActivity;
 
 import me.yokeyword.fragmentation.ExtraTransaction;
 import me.yokeyword.fragmentation.ISupportFragment;

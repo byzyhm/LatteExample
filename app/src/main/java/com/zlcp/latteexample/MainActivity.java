@@ -9,6 +9,7 @@ import com.zlcp.lattecore.fragments.LatteFragment;
 import com.zlcp.latteec.launcher.ILauncherListener;
 import com.zlcp.latteec.launcher.LauncherFragment;
 import com.zlcp.latteec.launcher.OnLauncherFinishTag;
+import com.zlcp.latteec.main.EcBottomFragment;
 import com.zlcp.latteec.sign.ISignListener;
 import com.zlcp.latteec.sign.SignInFragment;
 
@@ -45,12 +46,12 @@ public class MainActivity extends ProxyActivity
         switch (tag) {
             case SIGNED:
                 Toast.makeText(this, "您已登陆了哟！", Toast.LENGTH_LONG).show();
-                getSupportDelegate().startWithPop(new MainFragment());
+                getSupportDelegate().startWithPop(new EcBottomFragment());     //登录后跳主页
                 break;
             case NOT_SIGNED:
                 Toast.makeText(this, "亲，您还没有登录！", Toast.LENGTH_LONG).show();
-//                getSupportDelegate().startWithPop(new EcBottomFragment());
-                getSupportDelegate().start(new SignInFragment());//没登录先直接跳转登录页面
+                getSupportDelegate().startWithPop(new EcBottomFragment());     //没登录也跳主页
+//                getSupportDelegate().start(new SignInFragment());//没登录先直接跳转登录页面
                 break;
             default:
                 break;
