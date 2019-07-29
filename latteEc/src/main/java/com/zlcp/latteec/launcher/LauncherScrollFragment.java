@@ -8,7 +8,7 @@ import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.zlcp.lattecore.app.AccountManager;
 import com.zlcp.lattecore.app.IUserChecker;
-import com.zlcp.lattecore.delegates.LatteFragment;
+import com.zlcp.lattecore.fragments.LatteFragment;
 import com.zlcp.lattecore.ui.launcher.LauncherHolderCreator;
 import com.zlcp.lattecore.ui.launcher.ScrollLauncherTag;
 import com.zlcp.lattecore.util.storage.LattePreference;

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.zlcp.lattecore.R;
-import com.zlcp.lattecore.delegates.LatteFragment;
+import com.zlcp.lattecore.fragments.LatteFragment;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;

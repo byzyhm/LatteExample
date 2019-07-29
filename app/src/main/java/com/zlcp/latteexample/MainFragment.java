@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.zlcp.lattecore.app.Latte;
-import com.zlcp.lattecore.delegates.LatteFragment;
+import com.zlcp.lattecore.fragments.LatteFragment;
 import com.zlcp.lattecore.net.RestClient;
 import com.zlcp.lattecore.net.callback.IError;
 import com.zlcp.lattecore.net.callback.IFailure;

@@ -1,4 +1,4 @@
-package com.zlcp.lattecore.delegates;
+package com.zlcp.lattecore.fragments;
 
 /**
  * 作者：zl_freedom

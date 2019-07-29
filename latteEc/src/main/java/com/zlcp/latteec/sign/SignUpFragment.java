@@ -6,7 +6,7 @@ import android.util.Patterns;
 import android.view.View;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.zlcp.lattecore.delegates.LatteFragment;
+import com.zlcp.lattecore.fragments.LatteFragment;
 import com.zlcp.lattecore.net.RestClient;
 import com.zlcp.lattecore.net.callback.ISuccess;
 import com.zlcp.lattecore.util.log.LogUtils;

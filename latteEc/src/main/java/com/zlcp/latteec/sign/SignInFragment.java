@@ -9,16 +9,15 @@ import android.widget.Toast;
 
 import com.blankj.utilcode.util.LogUtils;
 import com.google.android.material.textfield.TextInputEditText;
-import com.zlcp.lattecore.delegates.LatteFragment;
+import com.zlcp.lattecore.fragments.LatteFragment;
 import com.zlcp.lattecore.net.RestClient;
 import com.zlcp.lattecore.net.callback.ISuccess;
+import com.zlcp.lattecore.wechat.LatteWeChat;
+import com.zlcp.lattecore.wechat.callbacks.IWeChatSignInCallback;
 import com.zlcp.latteec.R;
-import com.zlcp.latteec.R2;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import butterknife.BindView;
-import butterknife.OnClick;
 
 import static com.blankj.utilcode.util.BarUtils.getStatusBarHeight;
 
@@ -118,12 +117,12 @@ public class SignInFragment extends LatteFragment implements View.OnClickListene
     }
 
     private void onClickWeChat() {
-//        LatteWeChat.getInstance().onSignSuccess(new IWeChatSignInCallback() {
-//            @Override
-//            public void onSignInsuccess(String userInfo) {
-//                Toast.makeText(getContext(), userInfo, Toast.LENGTH_LONG).show();
-//                Log.e("xxxx", "userInfo");
-//            }
-//        }).signIn();
+        LatteWeChat.getInstance().onSignSuccess(new IWeChatSignInCallback() {
+            @Override
+            public void onSignInsuccess(String userInfo) {
+                Toast.makeText(getContext(), userInfo, Toast.LENGTH_LONG).show();
+                Log.e("xxxx", "userInfo");
+            }
+        }).signIn();
     }
 }

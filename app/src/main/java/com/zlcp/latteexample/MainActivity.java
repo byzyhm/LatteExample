@@ -5,13 +5,12 @@ import android.widget.Toast;
 
 import com.zlcp.lattecore.activities.ProxyActivity;
 import com.zlcp.lattecore.app.Latte;
-import com.zlcp.lattecore.delegates.LatteFragment;
+import com.zlcp.lattecore.fragments.LatteFragment;
 import com.zlcp.latteec.launcher.ILauncherListener;
 import com.zlcp.latteec.launcher.LauncherFragment;
 import com.zlcp.latteec.launcher.OnLauncherFinishTag;
 import com.zlcp.latteec.sign.ISignListener;
 import com.zlcp.latteec.sign.SignInFragment;
-import com.zlcp.latteec.sign.SignUpFragment;
 
 import androidx.annotation.Nullable;
 import qiu.niorgai.StatusBarCompat;

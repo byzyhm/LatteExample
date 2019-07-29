@@ -6,13 +6,12 @@ import android.view.View;
 
 import com.zlcp.lattecore.app.AccountManager;
 import com.zlcp.lattecore.app.IUserChecker;
-import com.zlcp.lattecore.delegates.LatteFragment;
+import com.zlcp.lattecore.fragments.LatteFragment;
 import com.zlcp.lattecore.ui.launcher.ScrollLauncherTag;
 import com.zlcp.lattecore.util.storage.LattePreference;
 import com.zlcp.lattecore.util.timer.BaseTimerTask;
 import com.zlcp.lattecore.util.timer.ITimerListener;
 import com.zlcp.latteec.R;
-import com.zlcp.latteec.R2;
 
 import java.text.MessageFormat;
 import java.util.Timer;
@@ -20,8 +19,6 @@ import java.util.Timer;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
-import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * 作者：zl_freedom

@@ -1,4 +1,4 @@
-package com.zlcp.lattecore.delegates;
+package com.zlcp.lattecore.fragments;
 
 //import android.os.Bundle;
 //import android.support.annotation.NonNull;
@@ -24,13 +24,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
+
 import me.yokeyword.fragmentation.ExtraTransaction;
 import me.yokeyword.fragmentation.ISupportFragment;
 import me.yokeyword.fragmentation.SupportFragmentDelegate;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
-import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 /**
  * 作者：zl_freedom
