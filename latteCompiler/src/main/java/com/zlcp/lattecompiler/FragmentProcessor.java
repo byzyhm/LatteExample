@@ -1,4 +1,4 @@
-package com.zlcp.lattecompiler.compiler;
+package com.zlcp.lattecompiler;
 
 import com.google.auto.service.AutoService;
 import com.zlcp.latteannotations.annotations.AppRegisterGenerator;

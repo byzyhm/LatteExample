@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
@@ -10,7 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-//        multiDexEnabled true
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -37,6 +38,8 @@ dependencies {
     //注解依赖
     annotationProcessor project(':latteCompiler')
     implementation project(':latteAnnotations')
+    //
+    implementation 'com.android.support:multidex:1.0.3'
 
 }
 

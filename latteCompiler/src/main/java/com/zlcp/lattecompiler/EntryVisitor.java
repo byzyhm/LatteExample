@@ -1,4 +1,4 @@
-package com.zlcp.lattecompiler.compiler;
+package com.zlcp.lattecompiler;
 
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeName;

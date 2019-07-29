@@ -2,6 +2,8 @@ package com.zlcp.latteexample;
 
 import android.app.Application;
 
+import androidx.multidex.MultiDex;
+
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.zlcp.lattecore.app.Latte;
 import com.zlcp.lattecore.net.interceptors.AddCookieInterceptor;
@@ -27,7 +29,7 @@ public class MainApplication extends Application {
                 .withInterceptor(new AddCookieInterceptor())// 增加Cookie同步拦截器
                 .withInterceptor(new DebugInterceptor("index", R.raw.test))
                 .configure();
-//        MultiDex.install(this);
+        MultiDex.install(this);
 //        initStetho();
         DatabaseManager.getInstance().initDao(this);
 

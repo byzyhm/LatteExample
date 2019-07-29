@@ -1,16 +1,20 @@
 package com.zlcp.lattecore.wechat.template;
 
-import com.zlcp.lattecore.activities.ProxyActivity;
-import com.zlcp.lattecore.delegates.LatteFragment;
 
-/**
- * 作者：zl_freedom
- * 时间：2019/7/28 16:35
- * Note：
- */
-public class WXEntryTemplate extends ProxyActivity {
+import com.zlcp.lattecore.wechat.BaseWXEntryActivity;
+import com.zlcp.lattecore.wechat.LatteWeChat;
+
+public class WXEntryTemplate extends BaseWXEntryActivity {
+
     @Override
-    public LatteFragment setRootFragment() {
-        return null;
+    protected void onResume() {
+        super.onResume();
+        finish();
+        overridePendingTransition(0,0);
+    }
+
+    @Override
+    protected void onSignInSuccess(String userInfo) {
+        LatteWeChat.getInstance().getSignInCallback().onSignInsuccess(userInfo);
     }
 }

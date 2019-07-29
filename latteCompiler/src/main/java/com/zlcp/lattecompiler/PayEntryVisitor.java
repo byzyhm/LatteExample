@@ -1,4 +1,4 @@
-package com.zlcp.lattecompiler.compiler;
+package com.zlcp.lattecompiler;
 
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeName;
@@ -12,16 +12,16 @@ import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.SimpleAnnotationValueVisitor7;
 
 /**
- * Created by Anding on 2019/1/25 23:00
+ * Created by Anding on 2019/1/25 22:57
  * Note:
  */
 
-public class AppRegisterVisitor extends SimpleAnnotationValueVisitor7<Void, Void> {
+public class PayEntryVisitor extends SimpleAnnotationValueVisitor7<Void, Void> {
 
     private final Filer FILER;
     private String mPackageName = null;
 
-    AppRegisterVisitor(Filer FILER) {
+    PayEntryVisitor(Filer FILER) {
         this.FILER = FILER;
     }
 
@@ -39,14 +39,14 @@ public class AppRegisterVisitor extends SimpleAnnotationValueVisitor7<Void, Void
 
     private void generateJavaCode(TypeMirror typeMirror) {
         final TypeSpec targetActivity =
-                TypeSpec.classBuilder("AppRegister")
+                TypeSpec.classBuilder("WXPayEntryActivity")
                         .addModifiers(Modifier.PUBLIC)
                         .addModifiers(Modifier.FINAL)
                         .superclass(TypeName.get(typeMirror))
                         .build();
 
         final JavaFile javaFile = JavaFile.builder(mPackageName + ".wxapi", targetActivity)
-                .addFileComment("WeChat BroadcastReceiver")
+                .addFileComment("WeChat Pay entry file")
                 .build();
         try {
             javaFile.writeTo(FILER);

@@ -1,16 +1,33 @@
 package com.zlcp.lattecore.wechat.template;
 
-import com.zlcp.lattecore.activities.ProxyActivity;
-import com.zlcp.lattecore.delegates.LatteFragment;
+import com.blankj.utilcode.util.ToastUtils;
+import com.tencent.mm.opensdk.modelbase.BaseReq;
+import com.zlcp.lattecore.wechat.BaseWXPayEntryActivity;
 
-/**
- * 作者：zl_freedom
- * 时间：2019/7/28 16:36
- * Note：
- */
-public class WXPayEntryTemplate extends ProxyActivity {
+public class WXPayEntryTemplate extends BaseWXPayEntryActivity {
+
     @Override
-    public LatteFragment setRootFragment() {
-        return null;
+    protected void onPaySuccess() {
+        ToastUtils.showShort("支付成功");
+        finish();
+        overridePendingTransition(0, 0);
+    }
+
+    @Override
+    protected void onPayFail() {
+        ToastUtils.showShort("支付失败");
+        finish();
+        overridePendingTransition(0, 0);
+    }
+
+    @Override
+    protected void onPayCancel() {
+        ToastUtils.showShort("取消支付");
+        finish();
+        overridePendingTransition(0, 0);
+    }
+
+    @Override
+    public void onReq(BaseReq baseReq) {
     }
 }
