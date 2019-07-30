@@ -4,21 +4,23 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
+
 import com.zlcp.lattecore.app.AccountManager;
 import com.zlcp.lattecore.app.IUserChecker;
 import com.zlcp.lattecore.fragments.LatteFragment;
-import com.zlcp.lattecore.ui.launcher.ScrollLauncherTag;
 import com.zlcp.lattecore.util.storage.LattePreference;
 import com.zlcp.lattecore.util.timer.BaseTimerTask;
 import com.zlcp.lattecore.util.timer.ITimerListener;
 import com.zlcp.latteec.R;
+import com.zlcp.latteui.launcher.ILauncherListener;
+import com.zlcp.latteui.launcher.OnLauncherFinishTag;
+import com.zlcp.latteui.launcher.ScrollLauncherTag;
 
 import java.text.MessageFormat;
 import java.util.Timer;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatTextView;
 
 /**
  * 作者：zl_freedom

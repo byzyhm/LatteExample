@@ -1,4 +1,4 @@
-package com.zlcp.latteec.launcher;
+package com.zlcp.latteui.launcher;
 
 /**
  * 作者：zl_freedom

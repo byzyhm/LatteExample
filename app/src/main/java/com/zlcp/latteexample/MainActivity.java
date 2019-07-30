@@ -3,17 +3,17 @@ package com.zlcp.latteexample;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+
 import com.zlcp.lattecore.activities.ProxyActivity;
 import com.zlcp.lattecore.app.Latte;
 import com.zlcp.lattecore.fragments.LatteFragment;
-import com.zlcp.latteec.launcher.ILauncherListener;
 import com.zlcp.latteec.launcher.LauncherFragment;
-import com.zlcp.latteec.launcher.OnLauncherFinishTag;
 import com.zlcp.latteec.main.EcBottomFragment;
 import com.zlcp.latteec.sign.ISignListener;
-import com.zlcp.latteec.sign.SignInFragment;
+import com.zlcp.latteui.launcher.ILauncherListener;
+import com.zlcp.latteui.launcher.OnLauncherFinishTag;
 
-import androidx.annotation.Nullable;
 import qiu.niorgai.StatusBarCompat;
 
 public class MainActivity extends ProxyActivity

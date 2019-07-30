@@ -1,4 +1,4 @@
-package com.zlcp.lattecore.ui.launcher;
+package com.zlcp.latteui.launcher;
 
 import android.content.Context;
 import android.view.View;

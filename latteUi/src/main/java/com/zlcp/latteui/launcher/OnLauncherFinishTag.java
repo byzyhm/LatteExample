@@ -1,4 +1,4 @@
-package com.zlcp.latteec.launcher;
+package com.zlcp.latteui.launcher;
 
 public enum OnLauncherFinishTag {
     SIGNED,

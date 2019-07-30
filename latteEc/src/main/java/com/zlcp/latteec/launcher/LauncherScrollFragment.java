@@ -4,20 +4,22 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.zlcp.lattecore.app.AccountManager;
 import com.zlcp.lattecore.app.IUserChecker;
 import com.zlcp.lattecore.fragments.LatteFragment;
-import com.zlcp.lattecore.ui.launcher.LauncherHolderCreator;
-import com.zlcp.lattecore.ui.launcher.ScrollLauncherTag;
 import com.zlcp.lattecore.util.storage.LattePreference;
 import com.zlcp.latteec.R;
+import com.zlcp.latteui.launcher.ILauncherListener;
+import com.zlcp.latteui.launcher.LauncherHolderCreator;
+import com.zlcp.latteui.launcher.OnLauncherFinishTag;
+import com.zlcp.latteui.launcher.ScrollLauncherTag;
 
 import java.util.ArrayList;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 /**
  * 作者：zl_freedom
