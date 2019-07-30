@@ -26,8 +26,8 @@ public class MainApplication extends Application {
                 .withIcon(new FontEcModule())                            //自定义IconText
 //                .withApiHost("http://news.baidu.com/")
                 .withApiHost("http://mock.fulingjie.com/mock-android/api/")
-                .withInterceptor(new AddCookieInterceptor())// 增加Cookie同步拦截器
-                .withInterceptor(new DebugInterceptor("index", R.raw.test))
+//                .withInterceptor(new AddCookieInterceptor())// 增加Cookie同步拦截器
+//                .withInterceptor(new DebugInterceptor("index", R.raw.test))
                 .withWeChatAppId("Your apply App_id")                    //微信开放平台Id(申请了一个还在审核)
                 .withWeChatAppSecret("Your apply Secret_id")
                 .configure();

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/img_double"
+    android:layout_width="0dp"
+    android:layout_height="160dp"
+    android:layout_gravity="center"
+    android:layout_weight="1"
+    android:background="@android:color/white">
+
+</androidx.appcompat.widget.AppCompatImageView>

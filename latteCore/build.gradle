@@ -70,6 +70,11 @@ dependencies {
         exclude group: 'androidx.appcompat:appcompat'
         exclude group: 'com.google.android.material:material'
     })
+    //权限
+    api('com.github.hotchemi:permissionsdispatcher:3.2.0') {
+        exclude module: 'support-v13'
+    }
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.2.0'
     //工具类
     api 'com.blankj:utilcodex:1.25.1'
     //数据库依赖
