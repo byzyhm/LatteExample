@@ -63,11 +63,6 @@ dependencies {
     api 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
     //fastjson依赖
     api 'com.alibaba:fastjson:1.1.71.android'
-    //Banner依赖
-    api 'com.youth.banner:banner:1.4.10'
-    //Banner依赖
-    api 'com.bigkoo:convenientbanner:2.0.5'
-    api 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
     //Log依赖
     api 'com.orhanobut:logger:2.2.0'
     //沉浸式状态栏
