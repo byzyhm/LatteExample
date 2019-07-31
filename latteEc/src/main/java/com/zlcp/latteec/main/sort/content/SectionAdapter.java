@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.LinearLayoutCompat;
 
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseSectionQuickAdapter;
@@ -48,7 +49,7 @@ public class SectionAdapter extends BaseSectionQuickAdapter<SectionBean, BaseVie
 
     //商品信息
     @Override
-    protected void convert(BaseViewHolder helper, SectionBean item) {
+    protected void convert(BaseViewHolder helper, final SectionBean item) {
         //item.t返回SectionBean类型
         final String thumb = item.t.getGoodsThumb();
         final String name = item.t.getGoodsName();
@@ -59,5 +60,14 @@ public class SectionAdapter extends BaseSectionQuickAdapter<SectionBean, BaseVie
         Glide.with(mContext)
                 .load(thumb)
                 .into(goodsImageView);
+
+        //点击进入商品详情
+        final LinearLayoutCompat goodsContainer = helper.getView(R.id.ll_goods);
+        goodsContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "点击进入商品（name：" + name + ", goodsId:" + goodsId + ")详情", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
