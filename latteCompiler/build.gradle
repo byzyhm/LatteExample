@@ -6,6 +6,8 @@ dependencies {
     implementation 'com.squareup:javapoet:1.10.0'
     implementation 'com.google.auto.service:auto-service:1.0-rc4'
     implementation 'com.google.auto:auto-common:0.10'
+    //加上这句，解决gradle5.0以上版本类没有生成问题
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc4'
 }
 
 sourceCompatibility = "7"

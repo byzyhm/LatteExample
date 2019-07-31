@@ -14,7 +14,7 @@ import com.zlcp.latteec.R;
 /**
  * 作者：zl_freedom
  * 时间：2019/7/30 10:56
- * Note：
+ * Note：fragment_index.xml中被引用
  */
 public class TranslucentBehavior extends CoordinatorLayout.Behavior<Toolbar> {
     //注意这个变量一定要定义成类变量

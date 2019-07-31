@@ -28,8 +28,8 @@ public class MainApplication extends Application {
                 .withApiHost("http://mock.fulingjie.com/mock-android/api/")
 //                .withInterceptor(new AddCookieInterceptor())// 增加Cookie同步拦截器
 //                .withInterceptor(new DebugInterceptor("index", R.raw.test))
-                .withWeChatAppId("Your apply App_id")                    //微信开放平台Id(申请了一个还在审核)
-                .withWeChatAppSecret("Your apply Secret_id")
+                .withWeChatAppId("wxb9ab1d354462b149")                    //微信开放平台Id(申请了一个还在审核)
+                .withWeChatAppSecret("8b40af539a76953a518ee2c988588827")
                 .configure();
         MultiDex.install(this);
 //        initStetho();
