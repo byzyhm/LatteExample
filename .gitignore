@@ -10,5 +10,7 @@
 .DS_Store
 build
 .idea
+debug
+release
 /captures
 .externalNativeBuild
