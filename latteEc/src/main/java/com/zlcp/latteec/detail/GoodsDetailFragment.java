@@ -9,6 +9,9 @@ import androidx.annotation.Nullable;
 import com.zlcp.lattecore.fragments.LatteFragment;
 import com.zlcp.latteec.R;
 
+import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
+import me.yokeyword.fragmentation.anim.FragmentAnimator;
+
 /**
  * 作者：zl_freedom
  * 时间：2019/7/31 00:27
@@ -35,5 +38,10 @@ public class GoodsDetailFragment extends LatteFragment {
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View root) {
 
+    }
+
+    @Override
+    public FragmentAnimator onCreateFragmentAnimator() {
+        return new DefaultHorizontalAnimator();
     }
 }
