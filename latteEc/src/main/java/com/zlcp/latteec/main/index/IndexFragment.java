@@ -79,7 +79,7 @@ public class IndexFragment extends BottomItemFragment implements View.OnFocusCha
 //                startScanWithCheck(getParentFragments());
 //            }
 //        });
-//        mSearch.setOnFocusChangeListener(this);
+        mSearch.setOnFocusChangeListener(this);
 
 
 //        onCallRxGet();
@@ -155,7 +155,7 @@ public class IndexFragment extends BottomItemFragment implements View.OnFocusCha
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light
         );
-        mSwipeRefreshLayout.setProgressViewOffset(true, 120, 260);
+        mSwipeRefreshLayout.setProgressViewOffset(true, 90, 195);
     }
 
     private void initRecyclerView() {
@@ -166,7 +166,7 @@ public class IndexFragment extends BottomItemFragment implements View.OnFocusCha
             mRecyclerView.addItemDecoration(
                     BaseDecoration.create(ContextCompat.getColor(context, R.color.app_background), 5));
         }
-        //////////////
+        //获取父布局再跳转，不然跳转到详情页面会带着底部导航栏
         final EcBottomFragment ecBottomFragment = getParentFragments();
         mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(ecBottomFragment));
     }
@@ -175,7 +175,7 @@ public class IndexFragment extends BottomItemFragment implements View.OnFocusCha
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
         StatusBarCompat.translucentStatusBar(getProxyActivity(),true);
-        initRecyclerView();
+        initRefreshLayout();
         initRecyclerView();
         mRefreshHandler.firstPage("index.php");
     }

@@ -22,10 +22,12 @@ public class TranslucentBehavior extends CoordinatorLayout.Behavior<Toolbar> {
     //延长滑动过程
     private static final int MORE = 100;
 
+    //一定要有两个参数的构造方法，否则报错
     public TranslucentBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
+    //要依赖的View
     @Override
     public boolean layoutDependsOn(@NonNull CoordinatorLayout parent, @NonNull Toolbar child, @NonNull View dependency) {
         return dependency.getId() == R.id.rv_index;

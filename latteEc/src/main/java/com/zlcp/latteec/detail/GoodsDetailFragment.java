@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.zlcp.lattecore.fragments.LatteFragment;
+import com.zlcp.latteec.R;
 
 /**
  * 作者：zl_freedom
@@ -14,9 +15,21 @@ import com.zlcp.lattecore.fragments.LatteFragment;
  * Note：
  */
 public class GoodsDetailFragment extends LatteFragment {
+
+    public static final String ARG_GOODS_ID = "ARG_GOODS_ID";
+    private int mGoodsId = -1;
+
+    public static GoodsDetailFragment create(int goodsId) {
+        final Bundle args = new Bundle();
+        args.putInt(ARG_GOODS_ID, goodsId);
+        final GoodsDetailFragment fragment = new GoodsDetailFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public Object setLayout() {
-        return null;
+        return R.layout.fragment_goods_detail;
     }
 
     @Override
