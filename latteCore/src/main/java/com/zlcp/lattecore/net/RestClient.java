@@ -8,7 +8,7 @@ import com.zlcp.lattecore.net.callback.IRequest;
 import com.zlcp.lattecore.net.callback.ISuccess;
 import com.zlcp.lattecore.net.callback.RequestCallbaks;
 import com.zlcp.lattecore.net.download.DownloadHandler;
-import com.zlcp.lattecore.ui.loader.LatteLoader;
+import com.zlcp.lattecore.ui.loader.FragmentLoader;
 import com.zlcp.lattecore.ui.loader.LoaderStyle;
 
 import java.io.File;
@@ -86,7 +86,7 @@ public class RestClient {
         }
 
         if (LOADER_STYLE != null) {
-            LatteLoader.showLoading(CONTEXT, LOADER_STYLE);
+            FragmentLoader.showLoading(CONTEXT, LOADER_STYLE);
         }
 
         switch (method) {

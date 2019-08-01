@@ -2,7 +2,7 @@ package com.zlcp.lattecore.net.callback;
 
 import android.os.Handler;
 
-import com.zlcp.lattecore.ui.loader.LatteLoader;
+import com.zlcp.lattecore.ui.loader.FragmentLoader;
 import com.zlcp.lattecore.ui.loader.LoaderStyle;
 
 import retrofit2.Call;
@@ -65,7 +65,7 @@ public class RequestCallbaks implements Callback<String> {
             HANDLER.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    LatteLoader.stopLoading();
+                    FragmentLoader.stopLoading();
                 }
             }, 1000);
         }

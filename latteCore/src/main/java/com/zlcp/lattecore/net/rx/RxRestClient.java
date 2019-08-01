@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.zlcp.lattecore.net.HttpMethod;
 import com.zlcp.lattecore.net.RestCreator;
-import com.zlcp.lattecore.ui.loader.LatteLoader;
+import com.zlcp.lattecore.ui.loader.FragmentLoader;
 import com.zlcp.lattecore.ui.loader.LoaderStyle;
 
 import java.io.File;
@@ -54,7 +54,7 @@ public class RxRestClient {
         Observable<String> observable = null;
 
         if (LOADER_STYLE != null) {
-            LatteLoader.showLoading(CONTEXT, LOADER_STYLE);
+            FragmentLoader.showLoading(CONTEXT, LOADER_STYLE);
         }
 
         switch (method) {

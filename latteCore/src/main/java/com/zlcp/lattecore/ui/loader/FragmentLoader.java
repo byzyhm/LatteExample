@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatDialog;
  * 时间：2019/7/23 15:24
  * 功能描述：
  */
-public class LatteLoader {
+public class FragmentLoader {
 
     private static final int LOADER_SIZE_SCALE = 8;
     private static final int LOADER_OFFSET_SCALE = 10;

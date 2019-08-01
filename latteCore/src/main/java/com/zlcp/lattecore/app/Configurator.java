@@ -3,23 +3,21 @@ package com.zlcp.lattecore.app;
 import android.app.Activity;
 import android.os.Handler;
 
+import androidx.annotation.NonNull;
+
 import com.blankj.utilcode.util.Utils;
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.zlcp.lattecore.web.event.Event;
+import com.zlcp.lattecore.web.event.EventManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.WeakHashMap;
 
 import okhttp3.Interceptor;
 
-/**
- * 作者：zl_freedom
- * 时间：2019/7/20 13:17
- * 功能描述：
- */
 public class Configurator {
 
     private static final Handler HANDLER = new Handler();
@@ -90,22 +88,23 @@ public class Configurator {
         return this;
     }
 
-//    public Configurator withJavascriptInterface(@NonNull String name) {
-//        LATTE_CONFIGS.put(ConfigKeys.JAVASCRIPT_INTERFACE, name);
-//        return this;
-//    }
-//
-//    public Configurator withWebEvent(@NonNull String name, @NonNull Event event) {
-//        final EventManager manager = EventManager.getInstance();
-//        manager.addEvent(name, event);
-//        return this;
-//    }
-//
-//    //浏览器加载的HOST
-//    public Configurator withWebHost(@NonNull String host) {
-//        LATTE_CONFIGS.put(ConfigKeys.WEB_HOST, host);
-//        return this;
-//    }
+    public Configurator withJavascriptInterface(@NonNull String name) {
+        LATTE_CONFIGS.put(ConfigKeys.JAVASCRIPT_INTERFACE, name);
+        return this;
+    }
+
+    public Configurator withWebEvent(@NonNull String name, @NonNull Event event) {
+        final EventManager manager = EventManager.getInstance();
+        manager.addEvent(name, event);
+
+        return this;
+    }
+
+    //浏览器加载的HOST
+    public Configurator withWebHost(@NonNull String host) {
+        LATTE_CONFIGS.put(ConfigKeys.WEB_HOST, host);
+        return this;
+    }
 
     private void initIcons() {
         if (ICONS.size() > 0) {
@@ -132,5 +131,4 @@ public class Configurator {
         }
         return (T) LATTE_CONFIGS.get(key);
     }
-
 }
