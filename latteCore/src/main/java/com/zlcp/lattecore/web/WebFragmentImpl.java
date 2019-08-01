@@ -44,7 +44,7 @@ public class WebFragmentImpl extends WebFragment {
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View root) {
         if (getUrl() != null) {
-            //用原生的方式模仿Web跳转，并进行页面加载
+            //用原生的方式模仿Web跳转，并进行页面加载（需要用到WebViewClientImpl进行拦截）
             Router.getInstance().loadPage(this, getUrl());
         }
     }
@@ -67,6 +67,7 @@ public class WebFragmentImpl extends WebFragment {
         return client;
     }
 
+    //WebView内部的一些处理和控制
     @Override
     public WebChromeClient initWebChromeClient() {
         return new WebChromeClientImpl();

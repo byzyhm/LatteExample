@@ -24,6 +24,8 @@ public class LatteWebInterface {
         return new LatteWebInterface(fragment);
     }
 
+    //默认在js里面注入的方法名只用一个方法名，event
+    //默认传入json数据（大于page的更好的架构）
     @SuppressWarnings("unused")
     @JavascriptInterface
     public String event(String params) {

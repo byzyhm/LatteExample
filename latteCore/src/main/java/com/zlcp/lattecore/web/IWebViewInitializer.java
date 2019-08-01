@@ -11,8 +11,8 @@ import android.webkit.WebViewClient;
  */
 public interface IWebViewInitializer {
     WebView initWebView(WebView webView);
-
+    //针对浏览器本省的控制
     WebViewClient initWebViewClient();
-
+    //针对页面的控制
     WebChromeClient initWebChromeClient();
 }

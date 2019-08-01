@@ -13,6 +13,7 @@ import android.webkit.WebView;
  * Note：
  */
 public class WebViewInitializer {
+    //注解知道危险性尽管来
     @SuppressLint({"SetJavaScriptEnabled", "NewApi"})
     public WebView createWebView(WebView webView) {
         WebView.setWebContentsDebuggingEnabled(true);
@@ -40,7 +41,7 @@ public class WebViewInitializer {
         });
         //初始化WebSettings
         final WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
+        settings.setJavaScriptEnabled(true);//基于安全性，默认不开启。必须开放js通道，没关系尽管来
         final String ua = settings.getUserAgentString();
         settings.setUserAgentString(ua + "Latte");
         //隐藏缩放控件
