@@ -6,6 +6,7 @@ import com.zlcp.lattecore.fragments.bottom.BaseBottomFragment;
 import com.zlcp.lattecore.fragments.bottom.BottomItemBuilder;
 import com.zlcp.lattecore.fragments.bottom.BottomItemFragment;
 import com.zlcp.lattecore.fragments.bottom.BottomTabBean;
+import com.zlcp.latteec.main.cart.ShopCartFragment;
 import com.zlcp.latteec.main.discover.DiscoverFragment;
 import com.zlcp.latteec.main.index.IndexFragment;
 import com.zlcp.latteec.main.sort.SortFragment;
@@ -24,7 +25,7 @@ public class EcBottomFragment extends BaseBottomFragment {
         items.put(new BottomTabBean("{fa-home}", "主页"), new IndexFragment());
         items.put(new BottomTabBean("{fa-sort}", "分类"), new SortFragment());
         items.put(new BottomTabBean("{fa-compass}", "发现"), new DiscoverFragment());
-        items.put(new BottomTabBean("{fa-shopping-cart}", "购物车"), new IndexFragment());
+        items.put(new BottomTabBean("{fa-shopping-cart}", "购物车"), new ShopCartFragment());
         items.put(new BottomTabBean("{fa-user}", "我的"), new IndexFragment());
         return builder.addItems(items).build();
     }
