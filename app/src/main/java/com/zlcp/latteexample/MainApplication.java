@@ -6,6 +6,7 @@ import androidx.multidex.MultiDex;
 
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.zlcp.lattecore.app.Latte;
+import com.zlcp.lattecore.net.interceptors.DebugInterceptor;
 import com.zlcp.latteec.database.DatabaseManager;
 import com.zlcp.latteec.icon.FontEcModule;
 import com.zlcp.latteexample.event.TestEvent;
@@ -30,6 +31,8 @@ public class MainApplication extends Application {
                 .withWeChatAppSecret("8b40af539a76953a518ee2c988588827")
                 .withJavascriptInterface("latte")
                 .withWebEvent("test", new TestEvent())                   //Js和原生交互
+                //模拟首页数据（Android9.0真机不能访问网络了）
+//                .withInterceptor(new DebugInterceptor("index.php", R.raw.index_data))
 //                .withWebEvent("share", new ShareEvent())
                 .configure();
         MultiDex.install(this);
