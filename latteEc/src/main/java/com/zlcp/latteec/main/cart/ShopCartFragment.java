@@ -41,13 +41,13 @@ import static com.blankj.utilcode.util.BarUtils.getStatusBarHeight;
  * 时间：2019/8/2 12:25
  * Note：
  */
-public class ShopCartFragment extends BottomItemFragment implements ISuccess, ICartItemListener, View.OnClickListener, IAlPayResultListener {
+public class ShopCartFragment extends BottomItemFragment
+        implements ISuccess, ICartItemListener, View.OnClickListener, IAlPayResultListener {
 
     private ShopCartAdapter mAdapter = null;
-
     //购物车数量标记
-    private int mCurrentCount = 0;//当前选中的数量
-    private int mTotalCount = 0; //item总个数
+    private int mCurrentCount = 0;
+    private int mTotalCount = 0;
     private double mTotalPrice = 0.00;
 
     private RecyclerView mRecyclerView = null;
@@ -89,7 +89,9 @@ public class ShopCartFragment extends BottomItemFragment implements ISuccess, IC
     @Override
     public void onSuccess(String response) {
         final ArrayList<MultipleItemEntity> data =
-                new ShopCartDataConverter().setJsonData(response).convert();
+                new ShopCartDataConverter()
+                        .setJsonData(response)
+                        .convert();
         mAdapter = new ShopCartAdapter(data);
         mAdapter.setCartItemListener(this);
         final LinearLayoutManager manager = new LinearLayoutManager(getContext());
@@ -100,10 +102,11 @@ public class ShopCartFragment extends BottomItemFragment implements ISuccess, IC
         checkItemCount();
     }
 
+    @SuppressWarnings("RestrictedApi")
     private void checkItemCount() {
         final int count = mAdapter.getItemCount();
         if (count == 0) {
-            @SuppressLint("RestrictedApi") final View stubView = mStubNoItem.inflate();
+            final View stubView = mStubNoItem.inflate();
             final AppCompatTextView tvToBuy =
                     stubView.findViewById(R.id.tv_stub_to_buy);
             ToastUtils.showShort("你该购物啦！");
@@ -125,15 +128,14 @@ public class ShopCartFragment extends BottomItemFragment implements ISuccess, IC
         } else {
             mRecyclerView.setVisibility(View.VISIBLE);
         }
-
     }
-
 
     @Override
     public void onItemClick(double itemTotalPrice) {
         final double price = mAdapter.getTotalPrice();
         mTvTotalPrice.setText(String.valueOf(price));
     }
+
 
     @Override
     public void onClick(View v) {
@@ -151,33 +153,10 @@ public class ShopCartFragment extends BottomItemFragment implements ISuccess, IC
             onClickClear();
 
         } else if (i == R.id.tv_shop_cart_pay) {
-            //创建订单
             createOrder();
         }
     }
 
-    //全选
-    private void onClickSelectAll() {
-        final int tag = (int) mIconSelectAll.getTag();
-        if (tag == 0) {
-            final Context context = getContext();
-            if (context != null) {
-                mIconSelectAll.setTextColor(ContextCompat.getColor(context, R.color.app_main));
-            }
-            mIconSelectAll.setTag(1);
-            mAdapter.setIsSelectedAll(true);
-            //更新RecyclerView的显示状态
-            mAdapter.notifyItemRangeChanged(0, mAdapter.getItemCount());
-        } else {
-            mIconSelectAll.setTextColor(Color.GRAY);
-            mIconSelectAll.setTag(0);
-            mAdapter.setIsSelectedAll(false);
-            mAdapter.notifyItemRangeChanged(0, mAdapter.getItemCount());
-        }
-
-    }
-
-    //删除选中
     private void onClickRemoveSelectedItem() {
         final List<MultipleItemEntity> data = mAdapter.getData();
         if (data.size() != 0) {
@@ -265,8 +244,28 @@ public class ShopCartFragment extends BottomItemFragment implements ISuccess, IC
                 })
                 .build()
                 .post();
+
     }
 
+    private void onClickSelectAll() {
+        final int tag = (int) mIconSelectAll.getTag();
+        if (tag == 0) {
+            final Context context = getContext();
+            if (context != null) {
+                mIconSelectAll.setTextColor
+                        (ContextCompat.getColor(context, R.color.app_main));
+            }
+            mIconSelectAll.setTag(1);
+            mAdapter.setIsSelectedAll(true);
+            //更新RecyclerView的显示状态
+            mAdapter.notifyItemRangeChanged(0, mAdapter.getItemCount());
+        } else {
+            mIconSelectAll.setTextColor(Color.GRAY);
+            mIconSelectAll.setTag(0);
+            mAdapter.setIsSelectedAll(false);
+            mAdapter.notifyItemRangeChanged(0, mAdapter.getItemCount());
+        }
+    }
 
     @Override
     public void onPaySuccess() {

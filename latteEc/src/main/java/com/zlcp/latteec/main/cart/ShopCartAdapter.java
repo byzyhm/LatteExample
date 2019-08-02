@@ -31,7 +31,7 @@ import java.util.List;
  */
 public class ShopCartAdapter extends BaseMultiItemQuickAdapter<MultipleItemEntity, MultipleViewHolder> {
 
-    private boolean mIsSelectedAll = false;
+    private boolean mIsSelectedAll = true;
     private ICartItemListener mCartItemListener;
     private double mTotalPrice = 0.00;
 

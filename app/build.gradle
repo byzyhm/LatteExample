@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'org.greenrobot.greendao' // apply plugin
+//apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
     compileSdkVersion 28
@@ -42,16 +42,16 @@ dependencies {
 
     compileOnly project(':latteAnnotations')
 
-    //规避方法数超过64k的一个bug，也有可能是依赖包重复，先规避一下
+    //规避方法数超过(65536)64k的一个bug，也有可能是依赖包重复，先规避一下
     implementation 'com.android.support:multidex:1.0.3'
 
 }
 
-greendao {
-    //数据库版本号
-    schemaVersion 1
-    //设置DaoMaster、DaoSession、Dao包名，也就是要放置这些类的包的路径。
-    daoPackage 'com.zlcp.test.dao'
-    //设置DaoMaster、DaoSession、Dao目录
-    targetGenDir 'src/main/java'
-}
+//greendao {
+//    //数据库版本号
+//    schemaVersion 1
+//    //设置DaoMaster、DaoSession、Dao包名，也就是要放置这些类的包的路径。
+//    daoPackage 'com.zlcp.test.dao'
+//    //设置DaoMaster、DaoSession、Dao目录
+//    targetGenDir 'src/main/java'
+//}
