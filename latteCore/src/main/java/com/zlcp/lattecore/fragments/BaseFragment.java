@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+
 import com.zlcp.lattecore.activities.ProxyActivity;
 
 import me.yokeyword.fragmentation.ExtraTransaction;
@@ -22,11 +23,12 @@ import me.yokeyword.fragmentation.SupportFragmentDelegate;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /**
- * 作者：zl_freedom
- * 时间：2019/7/21 10:57
+ * Created by Anding on 2019/1/12 15:26
  * Note: BaseFragment
  */
-public abstract class BaseFragment extends Fragment implements ISupportFragment {
+
+public abstract class BaseFragment extends Fragment
+        implements ISupportFragment {
 
     private final SupportFragmentDelegate DELEGATE = new SupportFragmentDelegate(this);
 

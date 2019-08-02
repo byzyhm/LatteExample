@@ -3,26 +3,26 @@ package com.zlcp.lattecore.activities;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.zlcp.lattecore.R;
 import com.zlcp.lattecore.fragments.LatteFragment;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import me.yokeyword.fragmentation.ExtraTransaction;
 import me.yokeyword.fragmentation.ISupportActivity;
 import me.yokeyword.fragmentation.SupportActivityDelegate;
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
-//import me.yokeyword.fragmentation.ISupportActivity;
-
 /**
- * 作者：zl_freedom
- * 时间：2019/7/21 10:54
+ * Created by Anding on 2019/1/12 15:20
  * Note: 全局的Activity 因项目采用单Activity,多fragment，所以Activity只是一个容器而已
  * 这里借助 Fragmentation
  */
-public abstract class ProxyActivity extends AppCompatActivity implements ISupportActivity {
+
+public abstract class ProxyActivity extends AppCompatActivity
+        implements ISupportActivity {
 
     private final SupportActivityDelegate DELEGATE = new SupportActivityDelegate(this);
 

@@ -13,11 +13,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.joanzapata.iconify.widget.IconTextView;
 import com.zlcp.lattecore.fragments.bottom.BottomItemFragment;
-import com.zlcp.lattecore.net.RestClient;
 import com.zlcp.lattecore.net.RestCreator;
 import com.zlcp.lattecore.net.rx.RxRestClient;
 import com.zlcp.latteec.R;
@@ -29,19 +27,20 @@ import java.util.WeakHashMap;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import qiu.niorgai.StatusBarCompat;
 
+import static com.blankj.utilcode.util.BarUtils.getStatusBarHeight;
 
 /**
- * 作者：zl_freedom
- * 时间：2019/7/30 01:30
- * Note：
+ * Created by Anding on 2019/1/27 18:22
+ * Note: 主页fragment
  */
-public class IndexFragment extends BottomItemFragment implements View.OnFocusChangeListener{
+
+public class IndexFragment extends BottomItemFragment implements View.OnFocusChangeListener {
+
     private RecyclerView mRecyclerView = null;
     private SwipeRefreshLayout mSwipeRefreshLayout = null;
     private RefreshHandler mRefreshHandler = null;
@@ -61,7 +60,7 @@ public class IndexFragment extends BottomItemFragment implements View.OnFocusCha
         final AppCompatEditText mSearch = $(R.id.et_search_view);
 
         mToolbar.getBackground().mutate().setAlpha(0);
-        mToolbar.setPadding(0, BarUtils.getStatusBarHeight(), 0, 0);
+        mToolbar.setPadding(0, getStatusBarHeight(), 0, 0);
 
         mRefreshHandler = RefreshHandler.create(mSwipeRefreshLayout, mRecyclerView,
                 new IndexDataConverter());
@@ -72,26 +71,25 @@ public class IndexFragment extends BottomItemFragment implements View.OnFocusCha
 //                        ToastUtils.showShort("得到的二维码是"+args);
 //                    }
 //                });
-//
-//        mIconScan.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startScanWithCheck(getParentFragments());
-//            }
-//        });
-        mSearch.setOnFocusChangeListener(this);
 
+        mIconScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startScanWithCheck(getParentFragments());
+            }
+        });
+        mSearch.setOnFocusChangeListener(this);
 
 //        onCallRxGet();
 //        onCallRxRestClient();
     }
 
-    //第一种RX+Retrofit网络请求测试
+    //TODO:第一种RX+Retrofit网络请求测试
     void onCallRxGet() {
         final String url = "index.php";
-        final WeakHashMap<String, Object> params = new WeakHashMap<>();
+        final WeakHashMap<String,Object> params = new WeakHashMap<>();
 
-        final Observable<String> observable = RestCreator.getRxRestService().get(url, params);
+        final Observable<String> observable = RestCreator.getRxRestService().get(url,params);
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
@@ -102,7 +100,7 @@ public class IndexFragment extends BottomItemFragment implements View.OnFocusCha
 
                     @Override
                     public void onNext(String s) {
-                        ToastUtils.showLong(s);
+                       ToastUtils.showLong(s);
                     }
 
                     @Override
@@ -117,7 +115,7 @@ public class IndexFragment extends BottomItemFragment implements View.OnFocusCha
                 });
     }
 
-    //第二种RX+Retrofit网络请求测试
+    //TODO:第二种RX+Retrofit网络请求测试
     private void onCallRxRestClient() {
         final String url = "index.php";
         RxRestClient.builder()
@@ -155,18 +153,16 @@ public class IndexFragment extends BottomItemFragment implements View.OnFocusCha
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light
         );
-        mSwipeRefreshLayout.setProgressViewOffset(true, 90, 195);
+        mSwipeRefreshLayout.setProgressViewOffset(true, 120, 260);
     }
 
     private void initRecyclerView() {
         final GridLayoutManager manager = new GridLayoutManager(getContext(), 4);
         final Context context = getContext();
         mRecyclerView.setLayoutManager(manager);
-        if (context != null) {
-            mRecyclerView.addItemDecoration(
-                    BaseDecoration.create(ContextCompat.getColor(context, R.color.app_background), 5));
-        }
-        //获取父布局再跳转，不然跳转到详情页面会带着底部导航栏
+        if (context != null)
+            mRecyclerView.addItemDecoration(BaseDecoration.create(ContextCompat.getColor(context,
+                    R.color.app_background), 5));
         final EcBottomFragment ecBottomFragment = getParentFragments();
         mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(ecBottomFragment));
     }
@@ -174,7 +170,7 @@ public class IndexFragment extends BottomItemFragment implements View.OnFocusCha
     @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
-        StatusBarCompat.translucentStatusBar(getProxyActivity(),true);
+        StatusBarCompat.translucentStatusBar(getProxyActivity(), true);
         initRefreshLayout();
         initRecyclerView();
         mRefreshHandler.firstPage("index.php");

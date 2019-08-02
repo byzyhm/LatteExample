@@ -23,11 +23,12 @@ import java.util.Map;
 import me.yokeyword.fragmentation.ISupportFragment;
 
 /**
- * 作者：zl_freedom
- * 时间：2019/7/29 23:45
- * Note：
+ * Created by Anding on 2019/1/27 14:28
+ * Note:
  */
+
 public abstract class BaseBottomFragment extends LatteFragment implements View.OnClickListener {
+
     private final ArrayList<BottomTabBean> TAB_BEANS = new ArrayList<>();
     private final ArrayList<BottomItemFragment> ITEM_FRAGMENTS = new ArrayList<>();
     private final LinkedHashMap<BottomTabBean, BottomItemFragment> ITEMS = new LinkedHashMap<>();
@@ -60,6 +61,7 @@ public abstract class BaseBottomFragment extends LatteFragment implements View.O
         if (setClickColor() != 0) {
             mClickedColor = setClickColor();
         }
+
         final BottomItemBuilder builder = BottomItemBuilder.builder();
         final LinkedHashMap<BottomTabBean, BottomItemFragment> items = setItems(builder);
         ITEMS.putAll(items);
@@ -117,12 +119,11 @@ public abstract class BaseBottomFragment extends LatteFragment implements View.O
         //获取底部导航文字
         final AppCompatTextView itemTitle = (AppCompatTextView) item.getChildAt(1);
         itemTitle.setTextColor(mClickedColor);
-
     }
 
     @Override
-    public void onClick(View v) {
-        final int tabIndex = (int) v.getTag();
+    public void onClick(View view) {
+        final int tabIndex = (int) view.getTag();
         if (tabIndex != mCurrentFragment) {
             changeColor(tabIndex);
             getSupportDelegate().showHideFragment(ITEM_FRAGMENTS.get(tabIndex), ITEM_FRAGMENTS.get(mCurrentFragment));

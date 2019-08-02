@@ -4,11 +4,12 @@ import com.choices.divider.Divider;
 import com.choices.divider.DividerItemDecoration;
 
 /**
- * 作者：zl_freedom
- * 时间：2019/7/31 01:18
- * Note：
+ * Created by Anding on 2019/1/30 22:14
+ * Note:
  */
+
 public class DividerLookupImpl implements DividerItemDecoration.DividerLookup {
+
     private final int COLOR;
     private final int SIZE;
 

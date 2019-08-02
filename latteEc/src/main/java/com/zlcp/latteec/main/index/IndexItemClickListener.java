@@ -9,20 +9,15 @@ import com.zlcp.latteec.detail.GoodsDetailFragment;
 import com.zlcp.latteui.recycler.MultipleFields;
 import com.zlcp.latteui.recycler.MultipleItemEntity;
 
-/**
- * 作者：zl_freedom
- * 时间：2019/7/30 23:54
- * Note：
- */
 public class IndexItemClickListener extends SimpleClickListener {
 
     private final LatteFragment FRAGMENT;
 
-    private IndexItemClickListener(LatteFragment fragment){
+    private IndexItemClickListener(LatteFragment fragment) {
         this.FRAGMENT = fragment;
     }
 
-    public static IndexItemClickListener create(LatteFragment fragment){
+    public static SimpleClickListener create(LatteFragment fragment) {
         return new IndexItemClickListener(fragment);
     }
 
@@ -32,7 +27,6 @@ public class IndexItemClickListener extends SimpleClickListener {
         final int goodsId = entity.getField(MultipleFields.ID);
         final GoodsDetailFragment fragment = GoodsDetailFragment.create(1);
         FRAGMENT.getSupportDelegate().start(fragment);
-        
     }
 
     @Override

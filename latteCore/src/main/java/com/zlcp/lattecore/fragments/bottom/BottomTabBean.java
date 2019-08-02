@@ -1,11 +1,12 @@
 package com.zlcp.lattecore.fragments.bottom;
 
 /**
- * 作者：zl_freedom
- * 时间：2019/7/29 23:45
- * Note：
+ * Created by Anding on 2019/1/27 14:48
+ * Note: 底部导航bean
  */
-public class BottomTabBean {
+
+public final class BottomTabBean {
+
     private final CharSequence ICON;
     private final CharSequence TITLE;
 

@@ -1,21 +1,22 @@
 package com.zlcp.latteui.recycler;
 
+
 import androidx.annotation.ColorInt;
 
 import com.choices.divider.DividerItemDecoration;
 
 /**
- * 作者：zl_freedom
- * 时间：2019/7/31 01:14
- * Note：
+ * Created by Anding on 2019/1/30 22:13
+ * Note:
  */
+
 public class BaseDecoration extends DividerItemDecoration {
+
     private BaseDecoration(@ColorInt int color, int size) {
-        setDividerLookup(new DividerLookupImpl(color, size));
+        setDividerLookup(new DividerLookupImpl(color,size));
     }
 
     public static BaseDecoration create(@ColorInt int color, int size) {
-        return new BaseDecoration(color, size);
+        return new BaseDecoration(color,size);
     }
-
 }

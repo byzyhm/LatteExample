@@ -1,6 +1,5 @@
 package com.zlcp.latteui.recycler;
 
-import android.view.View;
 import android.widget.ImageView;
 
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -18,28 +17,18 @@ import com.zlcp.latteui.banner.BannerCreator;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 作者：zl_freedom
- * 时间：2019/7/30 18:28
- * Note：
- */
-public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleItemEntity, MultipleViewHolder>
+public class MultipleRecyclerAdapter extends
+        BaseMultiItemQuickAdapter<MultipleItemEntity, MultipleViewHolder>
         implements
         BaseQuickAdapter.SpanSizeLookup,
         OnItemClickListener {
 
-    /**
-     * Same as QuickAdapter#QuickAdapter(Context,int) but with
-     * some initialization data.
-     *
-     * @param data A new list is created out of this one to avoid mutable list
-     */
     protected MultipleRecyclerAdapter(List<MultipleItemEntity> data) {
         super(data);
         init();
     }
 
-    //确保初始化一次Banner，防止重复item加载
+    //确保初始化一次Banner,防止重复Item加载
     private boolean mIsInitBanner = false;
     //设置图片加载策略
     private static final RequestOptions REQUEST_OPTIONS =
@@ -47,19 +36,6 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
                     .centerCrop()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .dontAnimate();
-
-
-    private void init() {
-        //设置不同的item布局
-        addItemType(ItemType.TEXT, R.layout.item_multiple_text);
-        addItemType(ItemType.IMAGE, R.layout.item_multiple_single_image);
-        addItemType(ItemType.TEXT_IMAGE, R.layout.item_multiple_image_text);
-        addItemType(ItemType.BANNER, R.layout.item_multiple_banner);
-        //设置宽度监听
-        setSpanSizeLookup(this);
-        //多次执行动画
-        isFirstOnly(false);
-    }
 
     @Override
     protected void convert(MultipleViewHolder holder, MultipleItemEntity item) {
@@ -108,15 +84,27 @@ public class MultipleRecyclerAdapter extends BaseMultiItemQuickAdapter<MultipleI
         return new MultipleRecyclerAdapter(converter.convert());
     }
 
+    private void init() {
+        //设置不同的Item布局
+        addItemType(ItemType.TEXT, R.layout.item_multiple_text);
+        addItemType(ItemType.IMAGE, R.layout.item_multiple_single_image);
+        addItemType(ItemType.TEXT_IMAGE, R.layout.item_multiple_image_text);
+        addItemType(ItemType.BANNER, R.layout.item_multiple_banner);  //item_multiple_banner
+        //设置宽度监听
+        setSpanSizeLookup(this);
+//        openLoadAnimation();
+        //多次执行动画
+        isFirstOnly(false);
+    }
 
     @Override
     public int getSpanSize(GridLayoutManager gridLayoutManager, int position) {
         return getData().get(position).getField(MultipleFields.SPAN_SIZE);
     }
 
-
     @Override
     public void onItemClick(int position) {
 
     }
+
 }

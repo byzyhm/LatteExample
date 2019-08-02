@@ -3,23 +3,24 @@ package com.zlcp.lattecore.fragments.bottom;
 import java.util.LinkedHashMap;
 
 /**
- * 作者：zl_freedom
- * 时间：2019/7/29 23:46
- * Note：fragment和底部导航Item的绑定
+ * Created by Anding on 2019/1/27 14:53
+ * Note: fragment和底部导航Item的绑定
  */
-public class BottomItemBuilder {
+
+public final class BottomItemBuilder {
+
     private final LinkedHashMap<BottomTabBean, BottomItemFragment> ITEMS = new LinkedHashMap<>();
 
-    public static BottomItemBuilder builder() {
+    static BottomItemBuilder builder() {
         return new BottomItemBuilder();
     }
 
-    public BottomItemBuilder addItem(BottomTabBean bean, BottomItemFragment fragment) {
+    public final BottomItemBuilder addItem(BottomTabBean bean, BottomItemFragment fragment) {
         ITEMS.put(bean, fragment);
         return this;
     }
 
-    public BottomItemBuilder addItems(LinkedHashMap<BottomTabBean, BottomItemFragment> items) {
+    public final BottomItemBuilder addItems(LinkedHashMap<BottomTabBean, BottomItemFragment> items) {
         ITEMS.putAll(items);
         return this;
     }
@@ -27,6 +28,4 @@ public class BottomItemBuilder {
     public final LinkedHashMap<BottomTabBean, BottomItemFragment> build() {
         return ITEMS;
     }
-
-
 }
