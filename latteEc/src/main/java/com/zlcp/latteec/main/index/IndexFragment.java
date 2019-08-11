@@ -18,8 +18,12 @@ import com.joanzapata.iconify.widget.IconTextView;
 import com.zlcp.lattecore.fragments.bottom.BottomItemFragment;
 import com.zlcp.lattecore.net.RestCreator;
 import com.zlcp.lattecore.net.rx.RxRestClient;
+import com.zlcp.lattecore.util.callback.CallbackManager;
+import com.zlcp.lattecore.util.callback.CallbackType;
+import com.zlcp.lattecore.util.callback.IGlobalCallback;
 import com.zlcp.latteec.R;
 import com.zlcp.latteec.main.EcBottomFragment;
+import com.zlcp.latteec.main.index.search.SearchFragment;
 import com.zlcp.latteui.recycler.BaseDecoration;
 import com.zlcp.latteui.refresh.RefreshHandler;
 
@@ -64,18 +68,18 @@ public class IndexFragment extends BottomItemFragment implements View.OnFocusCha
 
         mRefreshHandler = RefreshHandler.create(mSwipeRefreshLayout, mRecyclerView,
                 new IndexDataConverter());
-//        CallbackManager.getInstance()
-//                .addCallback(CallbackType.ON_SCAN, new IGlobalCallback() {
-//                    @Override
-//                    public void executeCallback(@NonNull Object args) {
-//                        ToastUtils.showShort("得到的二维码是"+args);
-//                    }
-//                });
+        CallbackManager.getInstance()
+                .addCallback(CallbackType.ON_SCAN, new IGlobalCallback() {
+                    @Override
+                    public void executeCallback(@NonNull Object args) {
+                        ToastUtils.showShort("得到的二维码是"+ args);
+                    }
+                });
 
         mIconScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startScanWithCheck(getParentFragments());
+                startScanWithCheck(getParentFragments());
             }
         });
         mSearch.setOnFocusChangeListener(this);
@@ -179,7 +183,7 @@ public class IndexFragment extends BottomItemFragment implements View.OnFocusCha
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
         if (hasFocus) {
-//            getParentFragments().start(new SearchFragment());
+            getParentFragments().start(new SearchFragment());
         }
     }
 }
