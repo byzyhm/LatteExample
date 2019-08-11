@@ -8,7 +8,7 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
  * 时间：2019/7/21 17:42
  * 功能描述：
  */
-public abstract class LatteFragment extends BaseFragment {
+public abstract class LatteFragment extends PermissionCheckFragment {
     @SuppressWarnings("unchecked")
     public <T extends LatteFragment> T getParentFragments() {
         return (T) getParentFragment();
