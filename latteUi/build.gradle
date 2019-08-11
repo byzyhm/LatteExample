@@ -48,4 +48,8 @@ dependencies {
     //Google Auto(java代码生成器)
     api "com.google.auto.value:auto-value-annotations:1.6"
     annotationProcessor "com.google.auto.value:auto-value:1.6"
+    //View动画依赖
+    api 'com.nineoldandroids:library:2.4.0'
+    api 'com.daimajia.easing:library:2.1@aar'
+    api 'com.daimajia.androidanimations:library:2.3@aar'
 }
