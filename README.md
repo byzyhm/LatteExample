@@ -1,2 +1,3 @@
-# LatteExampleTwo
-从新开始
+# LatteExample
+通用开发App
+Ctrl+C，Ctrl+V
