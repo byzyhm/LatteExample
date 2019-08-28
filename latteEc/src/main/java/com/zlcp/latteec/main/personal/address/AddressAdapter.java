@@ -61,6 +61,4 @@ public class AddressAdapter extends BaseMultiItemQuickAdapter<MultipleItemEntity
 
         }
     }
-
-
 }

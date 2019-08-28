@@ -26,7 +26,7 @@ import permissions.dispatcher.PermissionRequest;
 import permissions.dispatcher.RuntimePermissions;
 
 /**
- * Created by Anding on 2019/1/12 16:58
+ * Created by zl_freedom
  * Note: 权限基类 给子类调用
  * 权限包括但不仅限于：手机拍照 读取手机数据
  */

@@ -6,7 +6,7 @@ import com.zlcp.lattecore.net.callback.IError;
 import com.zlcp.lattecore.net.callback.IFailure;
 import com.zlcp.lattecore.net.callback.IRequest;
 import com.zlcp.lattecore.net.callback.ISuccess;
-import com.zlcp.lattecore.net.callback.RequestCallbaks;
+import com.zlcp.lattecore.net.callback.RequestCallbacks;
 import com.zlcp.lattecore.net.download.DownloadHandler;
 import com.zlcp.lattecore.ui.loader.FragmentLoader;
 import com.zlcp.lattecore.ui.loader.LoaderStyle;
@@ -124,7 +124,7 @@ public class RestClient {
     }
 
     private Callback<String> getRequestCallback() {
-        return new RequestCallbaks(REQUEST, SUCCESS, FAILURE, ERROR, LOADER_STYLE);
+        return new RequestCallbacks(REQUEST, SUCCESS, FAILURE, ERROR, LOADER_STYLE);
     }
 
 

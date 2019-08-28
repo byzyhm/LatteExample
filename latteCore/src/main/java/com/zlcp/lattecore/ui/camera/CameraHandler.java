@@ -22,7 +22,7 @@ import com.zlcp.lattecore.util.file.FileUtil;
 import java.io.File;
 
 /**
- * Created by Anding
+ * Created by zl_freedom
  * 照片处理Core类
  */
 

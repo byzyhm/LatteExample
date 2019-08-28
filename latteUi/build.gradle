@@ -38,6 +38,7 @@ dependencies {
     api 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
     //BaseRecyclerViewAdapterHelper
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
+    //RecyclerView_Divider
     api('com.choices.divider:RecyclerView_Divider:1.0.0') {
         exclude group: 'com.android.support'
     }

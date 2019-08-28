@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.mob.sdk'//聚合分享
 //apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
@@ -12,6 +13,20 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            //注意：AndroidStudio 3.x系列的NDK只支持这些 mip和mips已经被移除，会报错
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a', 'x86', 'x86_64'
+        }
+
+        //极光推送
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "d1d580707563fed5663ea396",
+                JPUSH_CHANNEL: "developer-default",
+        ]
+
     }
     buildTypes {
         release {
@@ -23,6 +38,45 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+MobSDK {
+    appKey "2c060c582f5e4"
+    appSecret "f3386082610ca7827e7d17dbb566b32a"
+    ShareSDK {
+        devInfo {
+            SinaWeibo {
+                appKey "568898243"
+                appSecret "38a4f8204cc784f81f9f0daaf31e02e3"
+                callbackUri "http://www.sharesdk.cn"
+            }
+            TencentWeibo {
+                appKey "801307650"
+                appSecret "ae36f4ee3946e1cbb98d6965b0b2ff5c"
+                callbackUri "http://www.sharesdk.cn"
+            }
+            Wechat {
+                appId "wxb9ab1d354462b149"
+                appSecret "8b40af539a76953a518ee2c988588827"
+                userName "gh_afb25ac019c9"
+                path "pages/index/index.html?id=1"
+                withShareTicket true
+                miniprogramType 2
+            }
+            QQ {
+                appId "100371282"
+                appKey "aed9b0303e3ed1e27bae87c33761161d"
+            }
+            WechatMoments {
+                appId "wxb9ab1d354462b149"
+                appSecret "8b40af539a76953a518ee2c988588827"
+            }
+            WechatFavorite {
+                appId "wxb9ab1d354462b149"
+                appSecret "8b40af539a76953a518ee2c988588827"
+            }
+        }
     }
 }
 
@@ -44,6 +98,9 @@ dependencies {
 
     //规避方法数超过(65536)64k的一个bug，也有可能是依赖包重复，先规避一下
     implementation 'com.android.support:multidex:1.0.3'
+    //极光
+    implementation 'cn.jiguang.sdk:jpush:3.1.3'
+    implementation 'cn.jiguang.sdk:jcore:1.2.1'
 
 }
 

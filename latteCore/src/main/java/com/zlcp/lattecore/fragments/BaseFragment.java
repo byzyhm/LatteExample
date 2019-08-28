@@ -23,7 +23,7 @@ import me.yokeyword.fragmentation.SupportFragmentDelegate;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /**
- * Created by Anding on 2019/1/12 15:26
+ * Created by zl_freedom
  * Note: BaseFragment
  */
 

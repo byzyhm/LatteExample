@@ -14,7 +14,7 @@ import retrofit2.Response;
  * 时间：2019/7/22 13:28
  * 功能描述：
  */
-public class RequestCallbaks implements Callback<String> {
+public class RequestCallbacks implements Callback<String> {
 
     private final IRequest REQUEST;
     private final ISuccess SUCCESS;
@@ -23,7 +23,7 @@ public class RequestCallbaks implements Callback<String> {
     private final LoaderStyle LOADER_STYLE;
     private static final Handler HANDLER = new Handler();
 
-    public RequestCallbaks(IRequest request, ISuccess success, IFailure failure, IError error, LoaderStyle style) {
+    public RequestCallbacks(IRequest request, ISuccess success, IFailure failure, IError error, LoaderStyle style) {
         this.REQUEST = request;
         this.SUCCESS = success;
         this.FAILURE = failure;

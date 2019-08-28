@@ -3,7 +3,7 @@ package com.zlcp.lattecore.fragments.bottom;
 import java.util.LinkedHashMap;
 
 /**
- * Created by Anding on 2019/1/27 14:53
+ * Created by zl_freedom
  * Note: fragment和底部导航Item的绑定
  */
 

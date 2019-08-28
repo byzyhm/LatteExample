@@ -1,7 +1,7 @@
 package com.zlcp.lattecore.fragments.bottom;
 
 /**
- * Created by Anding on 2019/1/27 14:48
+ * Created by zl_freedom
  * Note: 底部导航bean
  */
 

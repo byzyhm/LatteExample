@@ -35,7 +35,6 @@ public class AddressDataConverter extends DataConverter {
             ENTITIES.add(entity);
 
         }
-
         return ENTITIES;
     }
 }
