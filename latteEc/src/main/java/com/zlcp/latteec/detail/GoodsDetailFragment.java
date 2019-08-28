@@ -44,7 +44,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import static com.blankj.utilcode.util.BarUtils.getStatusBarHeight;
 
 /**
- * Created by Anding on 2019/2/13 21:42
+ * Created by zl_freedom
  * Note:  商品详情页
  */
 

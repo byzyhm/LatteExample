@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Anding
+ * Created by zl_freedom
  * 自定义控件 仿微信添加图片控件
  */
 

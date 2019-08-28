@@ -15,7 +15,7 @@ import com.zlcp.latteui.R;
 import java.util.ArrayList;
 
 /**
- * Created by Anding on 2019/3/26 23:21
+ * Created by zl_freedom
  * Note: 评分控件
  */
 

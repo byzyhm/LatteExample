@@ -6,7 +6,7 @@ import androidx.annotation.ColorInt;
 import com.choices.divider.DividerItemDecoration;
 
 /**
- * Created by Anding on 2019/1/30 22:13
+ * Created by zl_freedom
  * Note:
  */
 

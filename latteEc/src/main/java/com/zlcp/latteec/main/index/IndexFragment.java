@@ -39,7 +39,7 @@ import qiu.niorgai.StatusBarCompat;
 import static com.blankj.utilcode.util.BarUtils.getStatusBarHeight;
 
 /**
- * Created by Anding on 2019/1/27 18:22
+ * Created by zl_freedom
  * Note: 主页fragment
  */
 

@@ -26,7 +26,7 @@ import com.zlcp.lattecore.wechat.LatteWeChat;
 import com.zlcp.latteec.R;
 
 /**
- * Created by Anding on 2019/3/13 22:51
+ * Created by zl_freedom
  * Note: 支付核心类
  */
 

@@ -4,7 +4,7 @@ import com.choices.divider.Divider;
 import com.choices.divider.DividerItemDecoration;
 
 /**
- * Created by Anding on 2019/1/30 22:14
+ * Created by zl_freedom
  * Note:
  */
 

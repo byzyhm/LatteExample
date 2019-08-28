@@ -8,7 +8,7 @@ import com.zlcp.lattecore.web.event.Event;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
 /**
- * Created by Anding on 2019/3/28 23:19
+ * Created by zl_freedom
  * Note: 分享的事件
  */
 
