@@ -27,6 +27,10 @@ android {
                 JPUSH_CHANNEL: "developer-default",
         ]
 
+        lintOptions {
+            abortOnError false
+        }
+
     }
     buildTypes {
         release {
